@@ -3,17 +3,17 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Paquete de Python con GitHub Actions y Azure DevOps - Programación desordenada</title>
+<title>Crear un paquete Python y publicarlo en Azure DevOps con GitHub Actions - Programación desordenada</title>
 <meta name=description content="En este post, me gustaría compartir una forma de crear un paquete de Python, publicarlo en un feed privado con una GitHub action y consumirlo en una aplicación cliente.">
 <meta name=author content="Sergio León"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Programación desordenada","url":"https:\/\/panicoenlaxbox.com"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/panicoenlaxbox.com"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/python-github-devops\/","name":"Paquete de python con git hub actions y azure dev ops"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"Paquete de Python con GitHub Actions y Azure DevOps","description":"En este post, me gustaría compartir una forma de crear un paquete de Python, publicarlo en un feed privado con una GitHub action y consumirlo en una aplicación cliente.\n","inLanguage":"es","wordCount":811,"datePublished":"2021-02-14T12:11:06","dateModified":"2021-02-14T12:11:06","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["python, github"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/python-github-devops\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="Paquete de Python con GitHub Actions y Azure DevOps">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/python-github-devops\/","name":"Crear un paquete python y publicarlo en azure dev ops con git hub actions"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"Crear un paquete Python y publicarlo en Azure DevOps con GitHub Actions","description":"En este post, me gustaría compartir una forma de crear un paquete de Python, publicarlo en un feed privado con una GitHub action y consumirlo en una aplicación cliente.\n","inLanguage":"es","wordCount":811,"datePublished":"2021-02-14T12:11:06","dateModified":"2021-02-14T12:11:06","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["python, github, azuredevops"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/python-github-devops\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Crear un paquete Python y publicarlo en Azure DevOps con GitHub Actions">
 <meta property="og:description" content="En este post, me gustaría compartir una forma de crear un paquete de Python, publicarlo en un feed privado con una GitHub action y consumirlo en una aplicación cliente.">
 <meta property="og:image" content="https://panicoenlaxbox.com/img/avatar-icon.png">
 <meta property="og:url" content="https://panicoenlaxbox.com/post/python-github-devops/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programación desordenada">
-<meta name=twitter:title content="Paquete de Python con GitHub Actions y Azure DevOps">
+<meta name=twitter:title content="Crear un paquete Python y publicarlo en Azure DevOps con GitHub …">
 <meta name=twitter:description content="En este post, me gustaría compartir una forma de crear un paquete de Python, publicarlo en un feed privado con una GitHub action y consumirlo en una aplicación cliente.">
 <meta name=twitter:image content="https://panicoenlaxbox.com/img/avatar-icon.png">
 <meta name=twitter:card content="summary">
@@ -106,7 +106,7 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <div class=post-heading>
-<h1>Paquete de Python con GitHub Actions y Azure DevOps</h1>
+<h1>Crear un paquete Python y publicarlo en Azure DevOps con GitHub Actions</h1>
 <span class=post-meta>
 <i class="fas fa-calendar"></i>&nbsp;Publicado el February 14, 2021
 </span>
@@ -252,6 +252,7 @@ extra-index-url=https://&lt;YOUR_TOKEN_NAME&gt;:&lt;YOUR_TOKEN&gt;@pkgs.dev.azur
 <div class=blog-tags>
 <a href=https://panicoenlaxbox.com/tags/python/>python</a>&nbsp;
 <a href=https://panicoenlaxbox.com/tags/github/>github</a>&nbsp;
+<a href=https://panicoenlaxbox.com/tags/azuredevops/>azuredevops</a>&nbsp;
 </div>
 <hr>
 <section id=social-share>
@@ -259,12 +260,12 @@ extra-index-url=https://&lt;YOUR_TOKEN_NAME&gt;:&lt;YOUR_TOKEN&gt;@pkgs.dev.azur
 <div class=share-box aria-hidden=true>
 <ul class=share>
 <li>
-<a href="//twitter.com/share?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fpython-github-devops%2f&text=Paquete%20de%20Python%20con%20GitHub%20Actions%20y%20Azure%20DevOps&via=panicoenlaxbox" target=_blank title="Share on Twitter">
+<a href="//twitter.com/share?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fpython-github-devops%2f&text=Crear%20un%20paquete%20Python%20y%20publicarlo%20en%20Azure%20DevOps%20con%20GitHub%20Actions&via=panicoenlaxbox" target=_blank title="Share on Twitter">
 <i class="fab fa-twitter"></i>
 </a>
 </li>
 <li>
-<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fpython-github-devops%2f&title=Paquete%20de%20Python%20con%20GitHub%20Actions%20y%20Azure%20DevOps" target=_blank title="Share on LinkedIn">
+<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fpython-github-devops%2f&title=Crear%20un%20paquete%20Python%20y%20publicarlo%20en%20Azure%20DevOps%20con%20GitHub%20Actions" target=_blank title="Share on LinkedIn">
 <i class="fab fa-linkedin"></i>
 </a>
 </li>
@@ -274,6 +275,7 @@ extra-index-url=https://&lt;YOUR_TOKEN_NAME&gt;:&lt;YOUR_TOKEN&gt;@pkgs.dev.azur
 </section>
 <h4 class=see-also>Ver también</h4>
 <ul>
+<li><a href=/post/nuget-package-azure-devops/>Crear un paquete Nuget y publicarlo en Azure DevOps</a></li>
 <li><a href=/post/hugo-github/>Hugo en GitHub</a></li>
 </ul>
 </article>
