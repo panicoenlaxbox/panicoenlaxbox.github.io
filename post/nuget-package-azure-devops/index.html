@@ -163,7 +163,7 @@
 <li>Generación de un informe de cobertura de código con <a href=https://github.com/danielpalme/ReportGenerator>ReportGenerator</a>.</li>
 </ul>
 <p>Lo único que no he metido es el fichero <a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/customize-your-build?view=vs-2019">Directory.Build.props</a> porque dependen del tamaño de la base de código del paquete, a veces me gusta y a veces no.</p>
-<p>En cuanto a los TFM del proyecto, me remito a este par de tweets que lo explican muy bien:</p>
+<p>En cuanto a los <a href=https://docs.microsoft.com/en-us/dotnet/standard/frameworks>TFM</a> del proyecto, me remito a este par de tweets que lo explican muy bien:</p>
 <blockquote class=twitter-tweet><p lang=es dir=ltr>Así, que la pregunta real es: ¿Qué clientes quieres soportar para tu classlib? <br>* Solo net5 -> Target a net5<br>* net5 y netcore3.x -> Target a netstandard 2.1<br>* net5, netcore 3.x,2.x, netfx4.6 -> Netstandard 2.0<br>* Otros -> Evaluar netstandard 1.x y/o multi-targeting</p>&mdash; Eduard Tomàs (@eiximenis) <a href="https://twitter.com/eiximenis/status/1329096262528987137?ref_src=twsrc%5Etfw">November 18, 2020</a></blockquote>
 <script async src=https://platform.twitter.com/widgets.js></script>
 <blockquote class=twitter-tweet><p lang=en dir=ltr>netcoreapp is a platform, like net4x or UWP.<br><br>netstandard is about sharing code across applications.<br><br>Your unit tests are an app, not a shared library. That's why they can't be netstandard (or its older brother, the PCL). Your apps need a target platform; so do your tests.</p>&mdash; xUnit.net (@xunit) <a href="https://twitter.com/xunit/status/952986336310394880?ref_src=twsrc%5Etfw">January 15, 2018</a></blockquote>
