@@ -3,18 +3,18 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Crear un paquete Nuget y publicarlo en Azure DevOps - Programación desordenada</title>
-<meta name=description content="Crear un paquete nuget y publicarlo puede ser sencillo, pero también es una operación que nos puede llevar más tiempo del previsto. La idea de este post es automatizar (en la medida de lo posible) la creación y publicación de un paquete nuget en un feed de Azure DevOps.">
+<title>Script de PowerShell para listar recursos de Azure - Programación desordenada</title>
+<meta name=description content="Me gusta PowerShell, pero reconozco que siempre que tengo que hacer un script con él me cuesta recordar su sintaxis y el paradigma que propone (la línea de comandos orientada a objetos).">
 <meta name=author content="Sergio León"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Programación desordenada","url":"https:\/\/panicoenlaxbox.com"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/panicoenlaxbox.com"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/nuget-package-azure-devops\/","name":"Crear un paquete nuget y publicarlo en azure dev ops"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"Crear un paquete Nuget y publicarlo en Azure DevOps","description":"Crear un paquete nuget y publicarlo puede ser sencillo, pero también es una operación que nos puede llevar más tiempo del previsto. La idea de este post es automatizar (en la medida de lo posible) la creación y publicación de un paquete nuget en un feed de Azure DevOps.\n","inLanguage":"es","wordCount":846,"datePublished":"2021-08-05T12:26:30","dateModified":"2021-08-05T12:26:30","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["csharp, nuget, azuredevops"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/nuget-package-azure-devops\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="Crear un paquete Nuget y publicarlo en Azure DevOps">
-<meta property="og:description" content="Crear un paquete nuget y publicarlo puede ser sencillo, pero también es una operación que nos puede llevar más tiempo del previsto. La idea de este post es automatizar (en la medida de lo posible) la creación y publicación de un paquete nuget en un feed de Azure DevOps.">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/powershell-azure-resources\/","name":"Script de power shell para listar recursos de azure"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"Script de PowerShell para listar recursos de Azure","description":"Me gusta PowerShell, pero reconozco que siempre que tengo que hacer un script con él me cuesta recordar su sintaxis y el paradigma que propone (la línea de comandos orientada a objetos).\n","inLanguage":"es","wordCount":190,"datePublished":"2021-08-18T19:16:00","dateModified":"2021-08-18T19:16:00","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["powershell, azure"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/powershell-azure-resources\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Script de PowerShell para listar recursos de Azure">
+<meta property="og:description" content="Me gusta PowerShell, pero reconozco que siempre que tengo que hacer un script con él me cuesta recordar su sintaxis y el paradigma que propone (la línea de comandos orientada a objetos).">
 <meta property="og:image" content="https://panicoenlaxbox.com/img/avatar-icon.png">
-<meta property="og:url" content="https://panicoenlaxbox.com/post/nuget-package-azure-devops/">
+<meta property="og:url" content="https://panicoenlaxbox.com/post/powershell-azure-resources/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programación desordenada">
-<meta name=twitter:title content="Crear un paquete Nuget y publicarlo en Azure DevOps">
-<meta name=twitter:description content="Crear un paquete nuget y publicarlo puede ser sencillo, pero también es una operación que nos puede llevar más tiempo del previsto. La idea de este post es automatizar (en la medida de lo posible) la …">
+<meta name=twitter:title content="Script de PowerShell para listar recursos de Azure">
+<meta name=twitter:description content="Me gusta PowerShell, pero reconozco que siempre que tengo que hacer un script con él me cuesta recordar su sintaxis y el paradigma que propone (la línea de comandos orientada a objetos).">
 <meta name=twitter:image content="https://panicoenlaxbox.com/img/avatar-icon.png">
 <meta name=twitter:card content="summary">
 <meta name=twitter:site content="@panicoenlaxbox">
@@ -106,9 +106,9 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <div class=post-heading>
-<h1>Crear un paquete Nuget y publicarlo en Azure DevOps</h1>
+<h1>Script de PowerShell para listar recursos de Azure</h1>
 <span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el August 5, 2021
+<i class="fas fa-calendar"></i>&nbsp;Publicado el August 18, 2021
 </span>
 </div>
 </div>
@@ -137,87 +137,56 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <article role=main class=blog-post>
-<p>Crear un paquete nuget y publicarlo puede ser sencillo, pero también es una operación que nos puede llevar más tiempo del previsto. La idea de este post es automatizar (en la medida de lo posible) la creación y publicación de un paquete nuget en un feed de Azure DevOps.</p>
-<p>Además, y asumiendo que <em>&ldquo;lo perfecto es enemigo de lo bueno&rdquo;</em>, he procurado que tanto el paquete como la pipeline sean lo más sencillas posibles. Ya habrá tiempo después para que cada uno personalice el resultado.</p>
-<blockquote>
-<p>TL;DR Usaremos cookiecutter (un paquete de Python) para generar un paquete nuget. Tendremos que crear en Azure DevOps un Environment (para la aprobación manual de la publicación) y una pipeline junto a algunas variables requeridas para versión el paquete con SEMVER.</p>
-</blockquote>
-<p><a href=https://github.com/cookiecutter/cookiecutter>Cookiecutter</a> es un paquete de Python para generar proyectos, el equivalente a <a href=https://yeoman.io/>Yeoman</a> de npm. He usado cookiecutter simplemente porque ahora estoy usando más Python que Javascript, pero la idea es la misma, automatizar la creación de todo lo necesario para crear y publicar el paquete de nuget.</p>
-<p>Asumiendo que tienes cookiecutter instalado (instalarlo es tan sencillo como ejecutar <code>pip install cookiecutter</code>), generaremos todo lo necesario con <code>cookiecutter https://github.com/panicoenlaxbox/cookiecutter-csharpnugetpackage</code>, que nos preguntará por:</p>
-<ul>
-<li>Nombre del paquete</li>
-<li>Nombre de la organización de Azure DevOps</li>
-<li>Nombre del proyecto de Azure DevOps</li>
-<li>Nombre del feed de Azure DevOps</li>
-</ul>
-<p><img src=images/cookiecutter-csharppackage.gif alt="ejecución del comando cookiecutter pidiendo interactivamente los 4 parámetros requeridos"></p>
-<p>Estoy asumiendo que estás usando un feed de proyecto (en vez de un feed de organización), es la <a href="https://docs.microsoft.com/en-us/azure/devops/artifacts/feeds/project-scoped-feeds?view=azure-devops">recomendación oficial</a>, pero ciertamente es muy opinable.</p>
-<blockquote>
-<p>Creating new organization-scoped feeds is not recommended.</p>
-</blockquote>
-<p>En caso de que estes usando un feed de organización, los cambios a realizar después de haber generado el proyecto sólo atañen a la url del feed en el fichero <code>nuget.config</code>.</p>
-<p>Los <em>highlights</em> del proyecto generado son:</p>
-<ul>
-<li>Soporte a Source Link, <a href=https://lurumad.github.io/using-source-link-in-net-projects-and-how-to-configure-visual-studio-to-use-it>Using Source Link in .NET projects and how to configure Visual Studio to use it</a>, gracias <a href=https://twitter.com/luisruizpavon>Luis Ruiz Pavón</a>.</li>
-<li>Pipeline con control de versión SEMVER, idea tomada de <a href=https://www.koskila.net/fun-with-azure-devops-nuget-package-versioning/>Fun with Azure DevOps NuGet package versioning!</a></li>
-<li>Pipeline negociada con <a href=https://twitter.com/snavarropino>Sergio Navarro Pino</a> y <a href=https://twitter.com/alexmiravet>Alejandro García Miravet</a>, sin ellos no hubiera sido posible este post.</li>
-<li>Generación de un informe de cobertura de código con <a href=https://github.com/danielpalme/ReportGenerator>ReportGenerator</a>.</li>
-</ul>
-<p>Lo único que no he metido es el fichero <a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/customize-your-build?view=vs-2019">Directory.Build.props</a> porque dependen del tamaño de la base de código del paquete, a veces me gusta y a veces no.</p>
-<p>En cuanto a los <a href=https://docs.microsoft.com/en-us/dotnet/standard/frameworks>TFM</a> del proyecto, me remito a este par de tweets que lo explican muy bien:</p>
-<blockquote class=twitter-tweet><p lang=es dir=ltr>Así, que la pregunta real es: ¿Qué clientes quieres soportar para tu classlib? <br>* Solo net5 -> Target a net5<br>* net5 y netcore3.x -> Target a netstandard 2.1<br>* net5, netcore 3.x,2.x, netfx4.6 -> Netstandard 2.0<br>* Otros -> Evaluar netstandard 1.x y/o multi-targeting</p>&mdash; Eduard Tomàs (@eiximenis) <a href="https://twitter.com/eiximenis/status/1329096262528987137?ref_src=twsrc%5Etfw">November 18, 2020</a></blockquote>
-<script async src=https://platform.twitter.com/widgets.js></script>
-<blockquote class=twitter-tweet><p lang=en dir=ltr>netcoreapp is a platform, like net4x or UWP.<br><br>netstandard is about sharing code across applications.<br><br>Your unit tests are an app, not a shared library. That's why they can't be netstandard (or its older brother, the PCL). Your apps need a target platform; so do your tests.</p>&mdash; xUnit.net (@xunit) <a href="https://twitter.com/xunit/status/952986336310394880?ref_src=twsrc%5Etfw">January 15, 2018</a></blockquote>
-<script async src=https://platform.twitter.com/widgets.js></script>
-<p>En local, el único cambio reseñable es configurar el fichero <code>nuget.config</code> para poder usar nuestro feed. Aunque en el <a href=https://github.com/panicoenlaxbox/cookiecutter-csharpnugetpackage#nugetconfig>repositorio de GitHub</a> está bien explicado, básicamente deberías ejecutar la siguiente instrucción:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>dotnet nuget add <span class=nb>source</span> https://pkgs.dev.azure.com/YOUR_ORGANIZATION/YOUR_TEAM_PROJECT/_packaging/YOUR_PROJECT_FEED/nuget/v3/index.json --name WHATEVER_YOU_WANT --username YOUR_USER_NAME --password YOUR_PAT --configfile nuget.config
-</code></pre></div><p>Si quieres ver en local el informe de cobertura de código:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>dotnet <span class=nb>test</span> /p:CollectCoverage<span class=o>=</span><span class=nb>true</span> /p:CoverletOutputFormat<span class=o>=</span>cobertura /p:CoverletOutput<span class=o>=</span>..<span class=se>\T</span>estResults<span class=se>\C</span>overage<span class=se>\
-</span><span class=se></span>dotnet reportgenerator -reports:tests<span class=se>\T</span>estResults<span class=se>\C</span>overage<span class=se>\*</span>*<span class=se>\*</span>.cobertura.xml -targetdir:tests<span class=se>\T</span>estResults<span class=se>\r</span>eportgenerator -reporttypes:HtmlInline_AzurePipelines
-</code></pre></div><p>Llegado a este punto, es hora de publicar nuestro paquete. Yo estoy asumiendo que ya tienes una organización de Azure DevOps creada, un proyecto, un feed de proyecto e incluso un entorno con aprobación manual. Por eso, para crear la pipeline solamente tendrás que cambiar el id del feed de proyecto (<em>YOUR_PROJECT_FEED_ID</em>) y el nombre del entorno (<em>YOUR_ENVIRONMENT_NAME</em>) en el fichero <a href=https://github.com/panicoenlaxbox/cookiecutter-csharpnugetpackage/blob/33bbbccf61ea29349375489e0df45fa22b603766/%7B%7Bcookiecutter.package_name%7D%7D/azure-pipelines.yml>azure-pipelines.yml</a>.</p>
-<p>Para el control de versiones con SEMVER, necesitamos crear también las siguientes variables:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Major</code></td>
-<td>0</td>
-</tr>
-<tr>
-<td><code>Minor</code></td>
-<td>0</td>
-</tr>
-<tr>
-<td><code>PackageVersionType</code></td>
-<td></td>
-</tr>
-<tr>
-<td><code>Patch</code></td>
-<td><code>$[counter(format('{0}.{1}', variables['Major'], variables['Minor']), 0)]</code></td>
-</tr>
-<tr>
-<td><code>PackageVersion</code></td>
-<td><code>$(Major).$(Minor).$(Patch)$(PackageVersionType)</code></td>
-</tr>
-</tbody>
-</table>
-<p>La propiedad <code>Version</code> del <code>.csproj</code> no se usará.</p>
-<p>Si no especificamos ningún valor durante la stage de Deployment, las versiones de los paquetes irán siendo <code>0.0.0</code>, <code>0.0.1</code> y así sucesivamente. Siempre podemos modificar la variable <code>Major</code> o <code>Minor</code> (tanto a nivel general como para la ejecución concreta de una pipeline) y además con <code>PackageVersionType</code> podemos escribir <code>-algo</code> (guión incluido) y obtendremos versiones de <em>prerelease</em>. En realidad, a Nuget <a href=https://docs.microsoft.com/en-us/nuget/create-packages/prerelease-packages>cualquier texto seguido del guión</a> le vale para considerar nuestra paquete una versión <em>prerelease</em>.</p>
-<p>Respecto a <code>PackageVersionType</code>, si la rama que dispara la pipeline no es <code>main</code> y la variable no tiene un valor, <a href=https://github.com/panicoenlaxbox/cookiecutter-csharpnugetpackage/blob/33bbbccf61ea29349375489e0df45fa22b603766/%7B%7Bcookiecutter.package_name%7D%7D/azure-pipelines.yml#L11>se establecerá</a> a <code>-alpha</code>.</p>
-<script type=application/javascript src=https://gist.github.com/panicoenlaxbox/2f78b9c825fbb075016065d89f92d63b.js></script>
-<p>Finalmente, al descargar tu paquete y abrirlo con <a href=https://github.com/NuGetPackageExplorer/NuGetPackageExplorer>Nuget Package Explorer</a>, deberías ver algo parecido a esto (<em>todo verdecito y apuntando al commit de turno</em>):</p>
-<p><img src=images/csharppackage.png alt="Package metadata con secciones Health y Repository funcionando correctamente"></p>
-<p>Claro está que la estrategía de publicación de un paquete está sujeta a debate y, bien podría valer lo aquí expuesto o no valer para nada. En cualquier caso, la siguiente vez que tenga que crear un paquete espero ahorrarme unos valiosos minutos/horas copiando y pegando de mi OneNote.</p>
+<p>Me gusta PowerShell, pero reconozco que siempre que tengo que hacer un script con él me cuesta recordar su sintaxis y el paradigma que propone (la línea de comandos orientada a objetos).</p>
+<p>Habiendo superado ya la sesión de autoayuda, en este post simplemente quiero mostrar un script (como otro cualquiera, podría hacerse de una forma diferente) que nos devolverá el número y el tipo de los distintos recursos que tenemos en nuestras suscripciones de Azure.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>$path = &#34;$($env:USERPROFILE)\resources.csv&#34;
+if (Test-Path -Path $path) {
+    Remove-Item -Path $path
+}
+$subscriptions = Get-AzSubscription | Select-Object -ExpandProperty Id
+$resources = @()
+foreach ($subscription in $subscriptions) {
+    Set-AzContext -SubscriptionId $subscription
+    $resources += Get-AzResource | Select-Object ResourceType
+}
+$resources | 
+Group-Object -Property ResourceType |
+Select-Object Name, Count |
+Export-Csv -NoTypeInformation -Delimiter &#34;;&#34; -Path $path</code></pre></td></tr></table>
+</div>
+</div>
+<p>Si quisieramos crear un <code>.ps1</code> y parametrizar por ejemplo el nombre del fichero, bastaría con algo así:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=k>param</span><span class=p>(</span>
+ <span class=p>[</span><span class=k>Parameter</span><span class=p>(</span><span class=k>Mandatory</span><span class=p>=</span><span class=nv>$True</span><span class=p>)]</span>
+ <span class=no>[string]</span>
+ <span class=nv>$path</span><span class=p>,</span>
+<span class=p>)</span>
+
+<span class=k>if</span> <span class=p>(</span><span class=nb>Test-Path</span> <span class=n>-Path</span> <span class=nv>$path</span><span class=p>)</span> <span class=p>{</span>
+    <span class=p>...</span>
+</code></pre></div><p>De un modo u otro, el script asume que previamente a su ejecución has iniciado sesión con <code>Connect-AzAccount</code>.</p>
 <p>Un saludo!</p>
 <div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/csharp/>csharp</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/nuget/>nuget</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/azuredevops/>azuredevops</a>&nbsp;
+<a href=https://panicoenlaxbox.com/tags/powershell/>powershell</a>&nbsp;
+<a href=https://panicoenlaxbox.com/tags/azure/>azure</a>&nbsp;
 </div>
 <hr>
 <section id=social-share>
@@ -225,12 +194,12 @@
 <div class=share-box aria-hidden=true>
 <ul class=share>
 <li>
-<a href="//twitter.com/share?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fnuget-package-azure-devops%2f&text=Crear%20un%20paquete%20Nuget%20y%20publicarlo%20en%20Azure%20DevOps&via=panicoenlaxbox" target=_blank title="Share on Twitter">
+<a href="//twitter.com/share?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fpowershell-azure-resources%2f&text=Script%20de%20PowerShell%20para%20listar%20recursos%20de%20Azure&via=panicoenlaxbox" target=_blank title="Share on Twitter">
 <i class="fab fa-twitter"></i>
 </a>
 </li>
 <li>
-<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fnuget-package-azure-devops%2f&title=Crear%20un%20paquete%20Nuget%20y%20publicarlo%20en%20Azure%20DevOps" target=_blank title="Share on LinkedIn">
+<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fpowershell-azure-resources%2f&title=Script%20de%20PowerShell%20para%20listar%20recursos%20de%20Azure" target=_blank title="Share on LinkedIn">
 <i class="fab fa-linkedin"></i>
 </a>
 </li>
@@ -238,23 +207,16 @@
 </div>
 </div>
 </section>
-<h4 class=see-also>Ver también</h4>
-<ul>
-<li><a href=/post/python-github-devops/>Crear un paquete Python y publicarlo en Azure DevOps con GitHub Actions</a></li>
-</ul>
 </article>
 <ul class="pager blog-pager">
 <li class=previous>
-<a href=https://panicoenlaxbox.com/post/hugo-github/ data-toggle=tooltip data-placement=top title="Hugo en GitHub">&larr; Artículo anterior</a>
-</li>
-<li class=next>
-<a href=https://panicoenlaxbox.com/post/powershell-azure-resources/ data-toggle=tooltip data-placement=top title="Script de PowerShell para listar recursos de Azure">Artículo siguiente &rarr;</a>
+<a href=https://panicoenlaxbox.com/post/nuget-package-azure-devops/ data-toggle=tooltip data-placement=top title="Crear un paquete Nuget y publicarlo en Azure DevOps">&larr; Artículo anterior</a>
 </li>
 </ul>
 <div class=disqus-comments>
-<button id=show-comments class="btn btn-default" type=button>Mostrar <span class=disqus-comment-count data-disqus-url=https://panicoenlaxbox.com/post/nuget-package-azure-devops>comentarios</span></button>
+<button id=show-comments class="btn btn-default" type=button>Mostrar <span class=disqus-comment-count data-disqus-url=https://panicoenlaxbox.com/post/powershell-azure-resources>comentarios</span></button>
 <div id=disqus_thread></div>
-<script type=text/javascript>var disqus_config=function(){this.page.url='https://panicoenlaxbox.com/post/nuget-package-azure-devops'}</script>
+<script type=text/javascript>var disqus_config=function(){this.page.url='https://panicoenlaxbox.com/post/powershell-azure-resources'}</script>
 </div>
 </div>
 </div>
