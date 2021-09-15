@@ -3,14 +3,21 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>nuget - Programación desordenada</title>
+<title>Instalar Spark en Windows - Programación desordenada</title>
+<meta name=description content="Instalar Spark en Windows no es una tarea difícil, pero tampoco es un tema de pulsar Siguiente, Siguiente en un wizard, es un poquito rollo, la verdad.
+Como ya van varias veces que he tenido que instalarlo, mejor dejarlo por escrito para no tener que recordar todo esto la siguiente vez que tenga que hacerlo.">
 <meta name=author content="Sergio León"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Programación desordenada","url":"https:\/\/panicoenlaxbox.com"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/panicoenlaxbox.com"}</script>
-<meta property="og:title" content="nuget">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/install-spark-on-windows\/","name":"Instalar spark en windows"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"Instalar Spark en Windows","description":"Instalar Spark en Windows no es una tarea difícil, pero tampoco es un tema de pulsar Siguiente, Siguiente en un wizard, es un poquito rollo, la verdad.\nComo ya van varias veces que he tenido que instalarlo, mejor dejarlo por escrito para no tener que recordar todo esto la siguiente vez que tenga que hacerlo.\n","inLanguage":"es","wordCount":589,"datePublished":"2021-09-15T19:37:20","dateModified":"2021-09-15T19:37:20","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["spark"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/install-spark-on-windows\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Instalar Spark en Windows">
+<meta property="og:description" content="Instalar Spark en Windows no es una tarea difícil, pero tampoco es un tema de pulsar Siguiente, Siguiente en un wizard, es un poquito rollo, la verdad.
+Como ya van varias veces que he tenido que instalarlo, mejor dejarlo por escrito para no tener que recordar todo esto la siguiente vez que tenga que hacerlo.">
 <meta property="og:image" content="https://panicoenlaxbox.com/img/avatar-icon.png">
-<meta property="og:url" content="https://panicoenlaxbox.com/tags/nuget/">
+<meta property="og:url" content="https://panicoenlaxbox.com/post/install-spark-on-windows/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programación desordenada">
-<meta name=twitter:title content="nuget">
+<meta name=twitter:title content="Instalar Spark en Windows">
+<meta name=twitter:description content="Instalar Spark en Windows no es una tarea difícil, pero tampoco es un tema de pulsar Siguiente, Siguiente en un wizard, es un poquito rollo, la verdad.
+Como ya van varias veces que he tenido que …">
 <meta name=twitter:image content="https://panicoenlaxbox.com/img/avatar-icon.png">
 <meta name=twitter:card content="summary">
 <meta name=twitter:site content="@panicoenlaxbox">
@@ -101,9 +108,11 @@
 <div class=container>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=tags-heading>
-<h1>nuget</h1>
-<hr class=small>
+<div class=post-heading>
+<h1>Instalar Spark en Windows</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Publicado el September 15, 2021
+</span>
 </div>
 </div>
 </div>
@@ -129,26 +138,74 @@
 <div class=container role=main>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=posts-list>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/nuget-package-azure-devops/>
-<h2 class=post-title>Crear un paquete Nuget y publicarlo en Azure DevOps</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el August 5, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>Crear un paquete nuget y publicarlo puede ser sencillo, pero también es una operación que nos puede llevar más tiempo del previsto. La idea de este post es automatizar (en la medida de lo posible) la creación y publicación de un paquete nuget en un feed de Azure DevOps.</p>
-<a href=https://panicoenlaxbox.com/post/nuget-package-azure-devops/ class=post-read-more>[Leer más]</a>
-</div>
+<article role=main class=blog-post>
+<p>Instalar <a href=https://spark.apache.org/>Spark</a> en Windows no es una tarea difícil, pero tampoco es un tema de pulsar Siguiente, Siguiente en un wizard, es un poquito rollo, la verdad.</p>
+<p>Como ya van varias veces que he tenido que instalarlo, mejor dejarlo por escrito para no tener que recordar todo esto la siguiente vez que tenga que hacerlo.</p>
+<p>Lo primero es <a href=https://spark.apache.org/downloads.html>descargar</a> Spark. En el momento de escribir este post es <em>Pre-built for Apache Hadoop 3.2 and later</em>. Con esto te descargarás un fichero <em>.tgz</em> que puedes descomprimir con <a href=https://www.7-zip.org/>7zip</a>. En realidad, al descomprimirlo tendrás un <em>.tar</em> que de nuevo, y usando 7zip, puedes volver a descomprimir. Finalmente tendrás una carpeta <code>spark-3.1.2-bin-hadoop3.2</code> con un montón de ficheros dentro. Copiala en <code>C:\spark\spark-3.1.2-bin-hadoop3.2</code>. La idea es crear una carpeta padre (en mi caso <code>spark</code>, pero el nombre no es importante) donde ir metiendo todo lo necesario.</p>
+<p>Agrega las siguientes variables de entorno:</p>
+<ul>
+<li><code>SPARK_HOME</code> con el valor <code>C:\spark\spark-3.1.2-bin-hadoop3.2</code>.</li>
+<li><code>PATH</code> con <code>%SPARK_HOME%\bin</code>.</li>
+</ul>
+<p>Ahora es el turno de Java (Spark está escrito en Scala). Puedes descargar un JRE (suficiente) o un JDK 8 o superior desde <a href=https://www.azul.com/>azul</a> y recuerda activar durante la instalación que se cree la variable de entorno <code>JAVA_HOME</code> (meter la ruta de de Java en el <code>PATH</code> lo hará de forma predeterminada el instalador). Acabarás con el valor <code>C:\Program Files\Zulu\zulu-8-jre\</code> en JAVA_HOME y la ruta <code>C:\Program Files\Zulu\zulu-8-jre\bin\</code> añadida al <code>PATH</code>.</p>
+<p>También tendrás que ayudar un poco a la versión embebida de <a href=https://hadoop.apache.org/>Hadoop</a> descargando los ficheros <code>winutils.exe</code> y <code>hadoop.dll</code> desde <a href=https://github.com/cdarlint/winutils/>https://github.com/cdarlint/winutils/</a>. Selecciona los que coincidan con la versión de Hadoop que nos descargamos inicialmente (en nuestro caso la 3.2). Copialos en <code>C:\spark\hadoop-3.2.1\bin</code>, que lo bien hecho bien parece y así está todo ordenado dentro del directorio <code>C:\spark</code>.</p>
+<p>Como era de esperar, toca actualizar variables de entorno:</p>
+<ul>
+<li><code>HADOOP_HOME</code> con <code>C:\spark\hadoop-3.1.2</code>.</li>
+<li><code>PATH</code> con <code>%HADOOP_HOME%\bin</code>.</li>
+</ul>
+<p>En este momento, prueba a ejecutar <code>winutils.exe</code> y si te sale una ventana de diálogo con el error <code>The code execution cannot proceed because MSVCR100.dll was not found. Reinstalling the program may fix this problem.</code> te tocará instalar <a href="https://www.microsoft.com/en-US/Download/details.aspx?id=26999">Visual Studio 2010 (VC++ 10.0) SP1</a>. Después de esto, <code>winutils.exe</code> no debería quejarse de nada.</p>
+<p>Con todo esto instalado y configurado, deberías poder ejecutar <code>spark-shell</code>, ¡por fín!.</p>
+<p>Prueba que el REPL funciona con <code>spark.version</code> y para salir <code>:q</code> (si al salir ves errores del tipo <code>Failed to delete: &lt;un directorio></code> no se lo tengas en cuenta).</p>
+<blockquote>
+<p>Si no has hecho funcionar en este punto <code>spark-shell</code>, no sigas adelante, tomátelo como un punto de retorno en un videojuego.</p>
+</blockquote>
+<p>Si además quiero probar <a href=https://spark.apache.org/docs/latest/api/python/index.html>pyspark</a>, tendrás que instalar Python 3.6+. La instalación de Python es sencilla pero recuerda activar al principio <em>Add Python 3.9 to PATH</em> y al final <em>Disable path length limit</em>. En el <code>PATH</code> se te agregará, tanto <code>C:\Users\azureuser\AppData\Local\Programs\Python\Python39\Scripts\</code> como <code>C:\Users\azureuser\AppData\Local\Programs\Python\Python39\</code>.</p>
+<p>Como estamos en racha, prueba ahora el REPL <code>pyspark</code> con nuestra super-instrucción <code>spark.version</code> y para salir usa <code>exit()</code>.</p>
+<blockquote>
+<p>En este punto, y si has ejecutado con éxito tanto <code>spark-shell</code> como <code>pyspark</code>, puedes sentirte orgulloso, ¡te has pasado el juego!.</p>
+</blockquote>
+<p>Lógicamente, con el paso del tiempo tendrás que instalar distintas versiones de Spark, pero será tan fácil como descargarlas (acompañado de su correspondiente <code>winutils.exe</code> y <code>hadoop.dll</code>), copiarlas en el directorio adecuado (todo ordenatido debajo de <code>C:\spark</code>) y te bastará con cambiar el valor de las variables de entorno <code>SPARK_HOME</code> y <code>HADOOP_HOME</code> para usar una versión u otra.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>spark/
+├─ spark-3.1.2-bin-hadoop3.2/
+├─ hadoop-3.2.1/
+│  ├─ bin/
+│  │  ├─ winutils.exe
+│  │  ├─ hadoop.dll
+</code></pre></div><p>Si además tienes varias versiones de Python instaladas, con la variable <code>PYSPARK_PYTHON</code> puedes decirle a pyspark que versión de Python utilizar.</p>
+<p>¡Un saludo!</p>
 <div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/csharp/>csharp</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/nuget/>nuget</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/azuredevops/>azuredevops</a>&nbsp;
+<a href=https://panicoenlaxbox.com/tags/spark/>spark</a>&nbsp;
 </div>
+<hr>
+<section id=social-share>
+<div class="list-inline footer-links">
+<div class=share-box aria-hidden=true>
+<ul class=share>
+<li>
+<a href="//twitter.com/share?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2finstall-spark-on-windows%2f&text=Instalar%20Spark%20en%20Windows&via=panicoenlaxbox" target=_blank title="Share on Twitter">
+<i class="fab fa-twitter"></i>
+</a>
+</li>
+<li>
+<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2finstall-spark-on-windows%2f&title=Instalar%20Spark%20en%20Windows" target=_blank title="Share on LinkedIn">
+<i class="fab fa-linkedin"></i>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</section>
 </article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://panicoenlaxbox.com/post/powershell-azure-resources/ data-toggle=tooltip data-placement=top title="Script de PowerShell para listar recursos de Azure">&larr; Artículo anterior</a>
+</li>
+</ul>
+<div class=disqus-comments>
+<button id=show-comments class="btn btn-default" type=button>Mostrar <span class=disqus-comment-count data-disqus-url=https://panicoenlaxbox.com/post/install-spark-on-windows>comentarios</span></button>
+<div id=disqus_thread></div>
+<script type=text/javascript>var disqus_config=function(){this.page.url='https://panicoenlaxbox.com/post/install-spark-on-windows'}</script>
 </div>
 </div>
 </div>
@@ -191,7 +248,7 @@
 </a>
 </li>
 <li>
-<a href=/tags/nuget/index.xml title=RSS>
+<a href title=RSS>
 <span class="fa-stack fa-lg">
 <i class="fas fa-circle fa-stack-2x"></i>
 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
