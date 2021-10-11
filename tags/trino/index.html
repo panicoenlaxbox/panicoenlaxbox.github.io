@@ -3,18 +3,14 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Hugo en una Azure Static Web App - Programación desordenada</title>
-<meta name=description content="Publicar un sitio de Hugo en una Azure Static Web App con autenticación personalizada">
+<title>trino - Programación desordenada</title>
 <meta name=author content="Sergio León"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Programación desordenada","url":"https:\/\/panicoenlaxbox.com"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/panicoenlaxbox.com"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/hugo-azure-static-web-app\/","name":"Hugo en una azure static web app"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"Hugo en una Azure Static Web App","description":"Después de publicar el blog en Hugo, en este post vamos a ver como usar una Azure Static Web App con autenticación personalizada para poner on-line nuestro sitio de Hugo.\n","inLanguage":"es","wordCount":616,"datePublished":"2021-10-04T09:35:30","dateModified":"2021-10-04T09:35:30","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["hugo, azure, github"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/hugo-azure-static-web-app\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="Hugo en una Azure Static Web App">
-<meta property="og:description" content="Publicar un sitio de Hugo en una Azure Static Web App con autenticación personalizada">
+<meta property="og:title" content="trino">
 <meta property="og:image" content="https://panicoenlaxbox.com/img/avatar-icon.png">
-<meta property="og:url" content="https://panicoenlaxbox.com/post/hugo-azure-static-web-app/">
+<meta property="og:url" content="https://panicoenlaxbox.com/tags/trino/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programación desordenada">
-<meta name=twitter:title content="Hugo en una Azure Static Web App">
-<meta name=twitter:description content="Publicar un sitio de Hugo en una Azure Static Web App con autenticación personalizada">
+<meta name=twitter:title content="trino">
 <meta name=twitter:image content="https://panicoenlaxbox.com/img/avatar-icon.png">
 <meta name=twitter:card content="summary">
 <meta name=twitter:site content="@panicoenlaxbox">
@@ -105,12 +101,9 @@
 <div class=container>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=post-heading>
-<h1>Hugo en una Azure Static Web App</h1>
-<h2 class=post-subheading>Publicar un sitio de Hugo en una Azure Static Web App con autenticación personalizada</h2>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el October 4, 2021
-</span>
+<div class=tags-heading>
+<h1>trino</h1>
+<hr class=small>
 </div>
 </div>
 </div>
@@ -136,148 +129,25 @@
 <div class=container role=main>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<article role=main class=blog-post>
-<p>Después de <a href=https://www.panicoenlaxbox.com/post/hugo-github/>publicar el blog en Hugo</a>, en este post vamos a ver como usar una <a href=https://azure.microsoft.com/en-us/services/app-service/static/>Azure Static Web App</a> con <a href="https://docs.microsoft.com/en-us/azure/static-web-apps/authentication-custom?tabs=aad">autenticación personalizada</a> para poner on-line nuestro sitio de Hugo.</p>
-<p>Aunque no es el propósito de este entrada, sólo mencionar que también podrías publicar tu sitio en una storage account. Basta con crear un contenedor llamado <code>$web</code> y activar la opción de servir contenido estático en la cuenta de almacenamiento. Las opciones son limitadas, poco más que establecer el documento por defecto y una página de error, pero para probar algo rápido cumple su función. Puedes encontrar más información <a href=https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website/>aquí</a>.</p>
-<p>Con una Azure Static Web App, publicar nuestro sitio de Hugo será coser y cantar. Básicamente (y durante la creación del recurso en Azure), el wizard nos pedirá la siguiente información:</p>
-<ul>
-<li>Organización</li>
-<li>Repositorio</li>
-<li>Rama</li>
-</ul>
-<p>A partir de ahí (y asumiendo estamos usando las rutas por defecto que sugiere Hugo), la Static Web App se encargará de crear en nuestro repositorio un workflow y un secreto para publicar el sitio en cada <em>push</em> o <em>pull-request</em>.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Azure Static Web Apps CI/CD</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=nt>on</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>push</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>main</span><span class=w>
-</span><span class=w>  </span><span class=nt>pull_request</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>types</span><span class=p>:</span><span class=w> </span><span class=p>[</span><span class=l>opened, synchronize, reopened, closed]</span><span class=w>
-</span><span class=w>    </span><span class=nt>branches</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=l>main</span><span class=w>
-</span><span class=w>
-</span><span class=w></span><span class=nt>jobs</span><span class=p>:</span><span class=w>
-</span><span class=w>  </span><span class=nt>build_and_deploy_job</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>if</span><span class=p>:</span><span class=w> </span><span class=l>github.event_name == &#39;push&#39; || (github.event_name == &#39;pull_request&#39; &amp;&amp; github.event.action != &#39;closed&#39;)</span><span class=w>
-</span><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
-</span><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build and Deploy Job</span><span class=w>
-</span><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>actions/checkout@v2</span><span class=w>
-</span><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=nt>submodules</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
-</span><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Build And Deploy</span><span class=w>
-</span><span class=w>        </span><span class=nt>id</span><span class=p>:</span><span class=w> </span><span class=l>builddeploy</span><span class=w>
-</span><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>Azure/static-web-apps-deploy@v1</span><span class=w>
-</span><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=nt>azure_static_web_apps_api_token</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_&lt;A_RANDOM_NAME&gt; }}</span><span class=w>
-</span><span class=w>          </span><span class=nt>repo_token</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.GITHUB_TOKEN }}</span><span class=w> </span><span class=c># Used for Github integrations (i.e. PR comments)</span><span class=w>
-</span><span class=w>          </span><span class=nt>action</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;upload&#34;</span><span class=w>
-</span><span class=w>          </span><span class=c>###### Repository/Build Configurations - These values can be configured to match your app requirements. ######</span><span class=w>
-</span><span class=w>          </span><span class=c># For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig</span><span class=w>
-</span><span class=w>          </span><span class=nt>app_location</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;/&#34;</span><span class=w> </span><span class=c># App source code path</span><span class=w>
-</span><span class=w>          </span><span class=nt>api_location</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;&#34;</span><span class=w> </span><span class=c># Api source code path - optional</span><span class=w>
-</span><span class=w>          </span><span class=nt>output_location</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;public&#34;</span><span class=w> </span><span class=c># Built app content directory - optional</span><span class=w>
-</span><span class=w>          </span><span class=c>###### End of Repository/Build Configurations ######</span><span class=w>
-</span><span class=w>
-</span><span class=w>  </span><span class=nt>close_pull_request_job</span><span class=p>:</span><span class=w>
-</span><span class=w>    </span><span class=nt>if</span><span class=p>:</span><span class=w> </span><span class=l>github.event_name == &#39;pull_request&#39; &amp;&amp; github.event.action == &#39;closed&#39;</span><span class=w>
-</span><span class=w>    </span><span class=nt>runs-on</span><span class=p>:</span><span class=w> </span><span class=l>ubuntu-latest</span><span class=w>
-</span><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Close Pull Request Job</span><span class=w>
-</span><span class=w>    </span><span class=nt>steps</span><span class=p>:</span><span class=w>
-</span><span class=w>      </span>- <span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>Close Pull Request</span><span class=w>
-</span><span class=w>        </span><span class=nt>id</span><span class=p>:</span><span class=w> </span><span class=l>closepullrequest</span><span class=w>
-</span><span class=w>        </span><span class=nt>uses</span><span class=p>:</span><span class=w> </span><span class=l>Azure/static-web-apps-deploy@v1</span><span class=w>
-</span><span class=w>        </span><span class=nt>with</span><span class=p>:</span><span class=w>
-</span><span class=w>          </span><span class=nt>azure_static_web_apps_api_token</span><span class=p>:</span><span class=w> </span><span class=l>${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_&lt;A_RANDOM_NAME&gt; }}</span><span class=w>
-</span><span class=w>          </span><span class=nt>action</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;close&#34;</span><span class=w>
-</span></code></pre></div><blockquote>
-<p>A golpe de click podemos publicar Hugo en una Azure Static Web App.</p>
-</blockquote>
-<p>Donde se complica un poco la cosa es si queremos hacer privado nuestro sitio y no queremos usar el <a href=https://docs.microsoft.com/en-us/azure/static-web-apps/authentication-authorization#invitations>flujo de invitaciones</a>. La verdad es que las invitaciones funcionan bien y están integradas (de nuevo a golpe de click) con los proveedores de autenticación más habituales (GitHub, Facebook, Twitter, Google, etc.). Sin embargo hay un gran pero, por ahora <a href=https://github.com/Azure/static-web-apps/issues/134https://github.com/Azure/static-web-apps/issues/134>sólo se pueden hacer 25 invitaciones</a>. Por eso, usando <a href="https://docs.microsoft.com/en-us/azure/static-web-apps/authentication-custom?tabs=aad">autenticación personalizada</a> te puedes olvidar de esta limitación y dar acceso a todos los usuarios de un proveedor (por ejemplo un tenant de AAD).</p>
-<p>Para activar la autenticación personalizada tenemos que crear y configurar un App registration.</p>
-<p>La clave está en añadir una plataforma en autenticación con la &ldquo;correcta&rdquo; URI de redirección y seleccionar qué tipo de token hay que emitir.</p>
-<p>En cuanto a la URI de redirección, será <code>https://&lt;URL_DE_NUESTRA_STATIC_WEB_APP>/.auth/login/aad/callback</code></p>
-<p><img src=images/redirect_uri.png alt=image-20211004101647063></p>
-<p>Para el token, hay que activar <code>ID tokens (used for implicit and hybrid flows)</code> en la sección &ldquo;Flujos de concesión implícita e híbridos&rdquo;.</p>
-<p>Con el App registration ya configurado y con un secreto que hayamos creado, es hora de configurar nuestra aplicación.</p>
-<p>Lo primero sería crear un fichero <code>staticwebapp.config.json</code> en la raíz del repositorio. Con este fichero podemos <a href=https://docs.microsoft.com/en-us/azure/static-web-apps/configuration>configurar</a> nuestra Static Web App.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
-    <span class=nt>&#34;routes&#34;</span><span class=p>:</span> <span class=p>[</span>
-        <span class=p>{</span>
-            <span class=nt>&#34;route&#34;</span><span class=p>:</span> <span class=s2>&#34;/*&#34;</span><span class=p>,</span>
-            <span class=nt>&#34;allowedRoles&#34;</span><span class=p>:</span> <span class=p>[</span>
-                <span class=s2>&#34;authenticated&#34;</span>
-            <span class=p>]</span>
-        <span class=p>}</span>
-    <span class=p>],</span>
-    <span class=nt>&#34;responseOverrides&#34;</span><span class=p>:</span> <span class=p>{</span>
-        <span class=nt>&#34;401&#34;</span><span class=p>:</span> <span class=p>{</span>
-            <span class=nt>&#34;redirect&#34;</span><span class=p>:</span> <span class=s2>&#34;/.auth/login/aad&#34;</span><span class=p>,</span>
-            <span class=nt>&#34;statusCode&#34;</span><span class=p>:</span> <span class=mi>302</span>
-        <span class=p>}</span>
-    <span class=p>},</span>
-    <span class=nt>&#34;auth&#34;</span><span class=p>:</span> <span class=p>{</span>
-        <span class=nt>&#34;identityProviders&#34;</span><span class=p>:</span> <span class=p>{</span>
-            <span class=nt>&#34;azureActiveDirectory&#34;</span><span class=p>:</span> <span class=p>{</span>
-                <span class=nt>&#34;userDetailsClaim&#34;</span><span class=p>:</span> <span class=s2>&#34;http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name&#34;</span><span class=p>,</span>
-                <span class=nt>&#34;registration&#34;</span><span class=p>:</span> <span class=p>{</span>
-                    <span class=nt>&#34;openIdIssuer&#34;</span><span class=p>:</span> <span class=s2>&#34;https://login.microsoftonline.com/&lt;YOUR_TENANT_ID&gt;&#34;</span><span class=p>,</span>
-                    <span class=nt>&#34;clientIdSettingName&#34;</span><span class=p>:</span> <span class=s2>&#34;CLIENT_ID&#34;</span><span class=p>,</span>
-                    <span class=nt>&#34;clientSecretSettingName&#34;</span><span class=p>:</span> <span class=s2>&#34;CLIENT_SECRET&#34;</span>
-                <span class=p>}</span>
-            <span class=p>}</span>
-        <span class=p>}</span>
-    <span class=p>}</span>
-<span class=p>}</span>
-</code></pre></div><p>Después, tendremos que crear un par de variables de configuración en nuestra aplicación, <code>CLIENT_ID</code> y <code>CLIENT_SECRET</code>.</p>
-<p>Ahora sí, la autenticación personalizada con AAD debería funcionar.</p>
-<p>Por último, otra característica muy útil de las Static Web App es que crearán nuevos entorno automáticamente por cada <em>pull-request</em>. De esta forma, podemos ver como quedaría nuestro sitio de Hugo en vivo antes de publicarlo en producción. Para que funcione la autenticación personalizada en los nuevos entornos, tendrás que agregar URIs de redirección adicionales a tu App registration.</p>
-<p>Un saludo!</p>
+<div class=posts-list>
+<article class=post-preview>
+<a href=https://panicoenlaxbox.com/post/trino-en-azure/>
+<h2 class=post-title>Trino en Azure</h2>
+</a>
+<p class=post-meta>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Publicado el October 11, 2021
+</span>
+</p>
+<div class=post-entry>
+<p>La idea de este post es colocar en el mapa a <a href=https://Trino.io/>Trino</a> e instalarlo sobre un clúster de VMs en Azure. En realidad, es lo que me hubiera gustado encontrar hace unas semanas para ahorrarnos (a mí y a <a href=https://twitter.com/alexmiravet>Alejandro García Miravet</a>) un montón de prueba y error. Si alguien quiere probar Trino, espero que lo tenga un poco más fácil después de leer este post.</p>
+<a href=https://panicoenlaxbox.com/post/trino-en-azure/ class=post-read-more>[Leer más]</a>
+</div>
 <div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/hugo/>hugo</a>&nbsp;
 <a href=https://panicoenlaxbox.com/tags/azure/>azure</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/github/>github</a>&nbsp;
+<a href=https://panicoenlaxbox.com/tags/trino/>trino</a>&nbsp;
 </div>
-<hr>
-<section id=social-share>
-<div class="list-inline footer-links">
-<div class=share-box aria-hidden=true>
-<ul class=share>
-<li>
-<a href="//twitter.com/share?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fhugo-azure-static-web-app%2f&text=Hugo%20en%20una%20Azure%20Static%20Web%20App&via=panicoenlaxbox" target=_blank title="Share on Twitter">
-<i class="fab fa-twitter"></i>
-</a>
-</li>
-<li>
-<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fhugo-azure-static-web-app%2f&title=Hugo%20en%20una%20Azure%20Static%20Web%20App" target=_blank title="Share on LinkedIn">
-<i class="fab fa-linkedin"></i>
-</a>
-</li>
-</ul>
-</div>
-</div>
-</section>
-<h4 class=see-also>Ver también</h4>
-<ul>
-<li><a href=/post/trino-en-azure/>Trino en Azure</a></li>
-<li><a href=/post/powershell-azure-resources/>Script de PowerShell para listar recursos de Azure</a></li>
-<li><a href=/post/hugo-github/>Hugo en GitHub</a></li>
-<li><a href=/post/python-github-devops/>Crear un paquete Python y publicarlo en Azure DevOps con GitHub Actions</a></li>
-</ul>
 </article>
-<ul class="pager blog-pager">
-<li class=previous>
-<a href=https://panicoenlaxbox.com/post/install-spark-on-windows/ data-toggle=tooltip data-placement=top title="Instalar Spark en Windows">&larr; Artículo anterior</a>
-</li>
-<li class=next>
-<a href=https://panicoenlaxbox.com/post/trino-en-azure/ data-toggle=tooltip data-placement=top title="Trino en Azure">Artículo siguiente &rarr;</a>
-</li>
-</ul>
-<div class=disqus-comments>
-<button id=show-comments class="btn btn-default" type=button>Mostrar <span class=disqus-comment-count data-disqus-url=https://panicoenlaxbox.com/post/hugo-azure-static-web-app>comentarios</span></button>
-<div id=disqus_thread></div>
-<script type=text/javascript>var disqus_config=function(){this.page.url='https://panicoenlaxbox.com/post/hugo-azure-static-web-app'}</script>
 </div>
 </div>
 </div>
@@ -320,7 +190,7 @@
 </a>
 </li>
 <li>
-<a href title=RSS>
+<a href=/tags/trino/index.xml title=RSS>
 <span class="fa-stack fa-lg">
 <i class="fas fa-circle fa-stack-2x"></i>
 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
