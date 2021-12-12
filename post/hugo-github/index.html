@@ -6,7 +6,7 @@
 <title>Hugo en GitHub - Programación desordenada</title>
 <meta name=description content="Cómo crear un blog de Hugo y publicarlo en GitHub pages">
 <meta name=author content="Sergio León"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Programación desordenada","url":"https:\/\/panicoenlaxbox.com"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/panicoenlaxbox.com"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/hugo-github\/","name":"Hugo en git hub"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"Hugo en GitHub","description":"Llevaba tiempo queriendo migrar mi blog de google a otra plataforma y Hugo y GitHub me lo han puesto muy fácil.\n","inLanguage":"es","wordCount":1206,"datePublished":"2021-06-06T12:04:30","dateModified":"2021-06-06T12:04:30","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["hugo, github"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/hugo-github\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/hugo-github\/","name":"Hugo en git hub"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"Hugo en GitHub","description":"Llevaba tiempo queriendo migrar mi blog de google a otra plataforma y Hugo y GitHub me lo han puesto muy fácil.\n","inLanguage":"es","wordCount":1469,"datePublished":"2021-06-06T12:04:30","dateModified":"2021-06-06T12:04:30","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["hugo, github"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/hugo-github\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
 <meta property="og:title" content="Hugo en GitHub">
 <meta property="og:description" content="Cómo crear un blog de Hugo y publicarlo en GitHub pages">
 <meta property="og:image" content="https://panicoenlaxbox.com/img/avatar-icon.png">
@@ -20,7 +20,7 @@
 <meta name=twitter:site content="@panicoenlaxbox">
 <meta name=twitter:creator content="@panicoenlaxbox">
 <link href=https://panicoenlaxbox.com/img/favicon.ico rel=icon type=image/x-icon>
-<meta name=generator content="Hugo 0.89.0">
+<meta name=generator content="Hugo 0.90.1">
 <link rel=alternate href=https://panicoenlaxbox.com/index.xml type=application/rss+xml title="Programación desordenada"><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css integrity=sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y crossorigin=anonymous>
 <link rel=stylesheet href=https://use.fontawesome.com/releases/v5.5.0/css/all.css integrity=sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU crossorigin=anonymous>
 <link rel=stylesheet href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css integrity=sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u crossorigin=anonymous><link rel=stylesheet href=https://panicoenlaxbox.com/css/main.css><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
@@ -276,7 +276,52 @@ Quisque pellentesque ligula orci, eu suscipit eros venenatis id. Sed dui metus, 
 </span></code></pre></div><p>Fíjate que GitHub te muestra de distinta forma los submódulos y los repositorios clonados.</p>
 <p><img src=images/submodule_and_clone.png alt=submodule_and_clone></p>
 <p>Y para acabar (y si estás migrando tu blog), puedes usar algo así para redireccionar entradas concretas a tu nuevo blog <a href=https://www.freakyjolly.com/how-to-redirect-single-blogger-post-to-external-url/>https://www.freakyjolly.com/how-to-redirect-single-blogger-post-to-external-url/</a></p>
-<p>Ahora sí, ¡reto conseguido!.</p>
+<p>Para poder incluir en el <a href=/archive>archivo</a> todos los posts de mi blog anterior, <a href=http://panicoenlaxbox.blogspot.com/>http://panicoenlaxbox.blogspot.com</a> he optado por modificar el fichero <code>layouts\archive\single.html</code> e incluir a mano (después del bloque de código que genera automáticamente el archivo para el blog actual) una lista que he generado con el siguiente script de PowerShell:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=c># https://developers.google.com/blogger/docs/3.0/using</span>
+<span class=nv>$apiKey</span> <span class=p>=</span> <span class=s1>&#39;YOUR_API_KEY&#39;</span>
+<span class=nv>$blog</span> <span class=p>=</span> <span class=s1>&#39;https://panicoenlaxbox.blogspot.com/&#39;</span>
+<span class=nv>$baseUrl</span> <span class=p>=</span> <span class=s1>&#39;https://www.googleapis.com/blogger/v3/blogs&#39;</span>
+<span class=nv>$url</span> <span class=p>=</span> <span class=s2>&#34;$baseUrl/byurl?url=$blog&amp;key=$apiKey&#34;</span>
+<span class=nb>Write-Host</span> <span class=s1>&#39;Getting blog id...&#39;</span>
+<span class=nv>$blogId</span> <span class=p>=</span> <span class=p>(</span><span class=nb>Invoke-RestMethod</span> <span class=n>-Uri</span> <span class=nv>$url</span> <span class=n>-Method</span> <span class=n>Get</span><span class=p>).</span><span class=n>id</span>
+<span class=nb>Write-Host</span> <span class=s2>&#34;blog id is $blogId&#34;</span>
+<span class=nv>$url</span> <span class=p>=</span> <span class=s2>&#34;$baseUrl/$blogId/posts?key=$apiKey&#34;</span>
+<span class=nb>Write-Host</span> <span class=s1>&#39;Getting posts...&#39;</span>
+<span class=nv>$response</span> <span class=p>=</span> <span class=nb>Invoke-RestMethod</span> <span class=n>-Uri</span> <span class=nv>$url</span> <span class=n>-Method</span> <span class=n>Get</span>
+<span class=nv>$posts</span> <span class=p>=</span> <span class=nv>$response</span><span class=p>.</span><span class=n>items</span> <span class=p>|</span> <span class=nb>Select-Object</span> <span class=n>published</span><span class=p>,</span> <span class=n>url</span><span class=p>,</span> <span class=n>title</span>
+<span class=nv>$nextPageToken</span> <span class=p>=</span> <span class=nv>$response</span><span class=p>.</span><span class=n>nextPageToken</span>
+<span class=k>while</span> <span class=p>(</span><span class=nv>$null</span> <span class=o>-ne</span> <span class=nv>$nextPageToken</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=nb>Write-Host</span> <span class=s2>&#34;Getting next page with token $nextPageToken...&#34;</span>
+    <span class=nv>$url</span> <span class=p>=</span> <span class=s2>&#34;$baseUrl/$blogId/posts?key=$apiKey&amp;pageToken=$nextPageToken&#34;</span>
+    <span class=nv>$response</span> <span class=p>=</span> <span class=nb>Invoke-RestMethod</span> <span class=n>-Uri</span> <span class=nv>$url</span> <span class=n>-Method</span> <span class=n>Get</span>
+    <span class=nv>$posts</span> <span class=p>+=</span> <span class=nv>$response</span><span class=p>.</span><span class=n>items</span> <span class=p>|</span> <span class=nb>Select-Object</span> <span class=n>published</span><span class=p>,</span> <span class=n>url</span><span class=p>,</span> <span class=n>title</span>
+    <span class=nv>$nextPageToken</span> <span class=p>=</span> <span class=nv>$response</span><span class=p>.</span><span class=n>nextPageToken</span>
+<span class=p>}</span>
+<span class=c># $posts | ConvertTo-Json | Out-File &#34;blogger.json&#34;</span>
+<span class=c># $posts = Get-Content -Path &#34;blogger.json&#34; | ConvertFrom-Json</span>
+<span class=nb>Write-Host</span> <span class=s1>&#39;Grouping posts by year...&#39;</span>
+<span class=nv>$years</span> <span class=p>=</span> <span class=nv>$posts</span> <span class=p>|</span> 
+<span class=nb>Select-Object</span> <span class=p>`</span>
+<span class=p>@{</span> <span class=n>Name</span> <span class=p>=</span> <span class=s1>&#39;Year&#39;</span><span class=p>;</span> <span class=n>Expression</span> <span class=p>=</span> <span class=p>{</span> <span class=nv>$_</span><span class=p>.</span><span class=n>published</span><span class=p>.</span><span class=n>Year</span> <span class=p>}</span> <span class=p>},</span> <span class=p>`</span>
+<span class=p>@{</span> <span class=n>Name</span> <span class=p>=</span> <span class=s1>&#39;Date&#39;</span><span class=p>;</span> <span class=n>Expression</span> <span class=p>=</span> <span class=p>{</span> <span class=nv>$_</span><span class=p>.</span><span class=n>published</span> <span class=p>}</span> <span class=p>},</span> <span class=p>`</span>
+<span class=p>@{</span> <span class=n>Name</span> <span class=p>=</span> <span class=s1>&#39;Url&#39;</span><span class=p>;</span> <span class=n>Expression</span> <span class=p>=</span> <span class=p>{</span> <span class=nv>$_</span><span class=p>.</span><span class=n>url</span> <span class=p>}</span> <span class=p>},</span> <span class=p>`</span>
+<span class=p>@{</span> <span class=n>Name</span> <span class=p>=</span> <span class=s1>&#39;Title&#39;</span><span class=p>;</span> <span class=n>Expression</span> <span class=p>=</span> <span class=p>{</span> <span class=nv>$_</span><span class=p>.</span><span class=n>title</span> <span class=p>}</span> <span class=p>}</span> <span class=p>|</span> 
+<span class=nb>Group-Object</span> <span class=n>-Property</span> <span class=n>Year</span> <span class=p>|</span> <span class=nb>Sort-Object</span> <span class=n>-Property</span> <span class=n>Name</span> <span class=n>-Descending</span>
+<span class=nb>Write-Host</span> <span class=s1>&#39;Generating html...&#39;</span>
+<span class=nv>$html</span> <span class=p>=</span> <span class=s2>&#34;&#34;</span>
+<span class=k>foreach</span> <span class=p>(</span><span class=nv>$year</span> <span class=k>in</span> <span class=nv>$years</span><span class=p>)</span>
+<span class=p>{</span>
+    <span class=nb>Write-Host</span> <span class=s2>&#34;Generating html for year </span><span class=p>$(</span><span class=nv>$year</span><span class=p>.</span><span class=n>Name</span><span class=p>)</span><span class=s2>&#34;</span>
+    <span class=nv>$html</span> <span class=p>+=</span> <span class=s2>&#34;&lt;h1 class=&#39;title is-4 has-text-weight-normal&#39;&gt;</span><span class=p>$(</span><span class=nv>$year</span><span class=p>.</span><span class=n>Name</span><span class=p>)</span><span class=s2>&lt;/h1&gt;&lt;ul class=&#39;article__list&#39;&gt;&#34;</span>
+    <span class=k>foreach</span> <span class=p>(</span><span class=nv>$post</span> <span class=k>in</span> <span class=nv>$year</span><span class=p>.</span><span class=n>Group</span><span class=p>)</span>
+    <span class=p>{</span>
+        <span class=nv>$html</span> <span class=p>+=</span> <span class=s2>&#34;&lt;li&gt;&lt;a class=&#39;is-block&#39; href=&#39;</span><span class=p>$(</span><span class=nv>$post</span><span class=p>.</span><span class=n>Url</span><span class=p>)</span><span class=s2>&#39;&gt;&lt;span class=&#39;has-text-grey-dark&#39;&gt;</span><span class=p>$(</span><span class=nv>$post</span><span class=p>.</span><span class=n>Date</span><span class=p>.</span><span class=n>ToString</span><span class=p>(</span><span class=s2>&#34;dd MMM&#34;</span><span class=p>))</span><span class=s2>&lt;/span&gt; — </span><span class=p>$(</span><span class=nv>$post</span><span class=p>.</span><span class=n>Title</span><span class=p>)</span><span class=s2>&lt;/a&gt;&lt;/li&gt;&#34;</span>
+    <span class=p>}</span>
+    <span class=nv>$html</span> <span class=p>+=</span> <span class=s1>&#39;&lt;/li&gt;&lt;/ul&gt;&#39;</span>
+<span class=p>}</span>
+<span class=nv>$html</span> <span class=p>|</span> <span class=nb>Out-File</span> <span class=s2>&#34;blogger.html&#34;</span>
+</code></pre></div><p>Ahora sí, ¡reto conseguido!.</p>
 <div class=blog-tags>
 <a href=https://panicoenlaxbox.com/tags/hugo/>hugo</a>&nbsp;
 <a href=https://panicoenlaxbox.com/tags/github/>github</a>&nbsp;
@@ -376,7 +421,7 @@ Sergio León
 <a href=https://panicoenlaxbox.com>Programación desordenada</a>
 </p>
 <p class="credits theme-by text-muted">
-<a href=https://gohugo.io>Hugo v0.89.0</a> alimentada &nbsp;&bull;&nbsp; Tema <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adaptado de <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
+<a href=https://gohugo.io>Hugo v0.90.1</a> alimentada &nbsp;&bull;&nbsp; Tema <a href=https://github.com/halogenica/beautifulhugo>Beautiful Hugo</a> adaptado de <a href=https://deanattali.com/beautiful-jekyll/>Beautiful Jekyll</a>
 </p>
 </div>
 </div>
