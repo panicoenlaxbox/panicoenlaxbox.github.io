@@ -3,14 +3,18 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>Posts - Programación desordenada</title>
+<title>Duck typing en python - Programación desordenada</title>
+<meta name=description content="El Duck typing es una forma de tipado estructural que permite definir interfaces de objetos, que no estando relacionados, se comportan de forma similar.">
 <meta name=author content="Sergio León"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Programación desordenada","url":"https:\/\/panicoenlaxbox.com"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/panicoenlaxbox.com"}</script>
-<meta property="og:title" content="Posts">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/duck-typing-python\/","name":"Duck typing en python"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"Duck typing en python","description":"El Duck typing es una forma de tipado estructural que permite definir interfaces de objetos, que no estando relacionados, se comportan de forma similar.\n","inLanguage":"es","wordCount":534,"datePublished":"2021-12-12T13:01:20","dateModified":"2021-12-12T13:01:20","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["python"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/duck-typing-python\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="Duck typing en python">
+<meta property="og:description" content="El Duck typing es una forma de tipado estructural que permite definir interfaces de objetos, que no estando relacionados, se comportan de forma similar.">
 <meta property="og:image" content="https://panicoenlaxbox.com/img/avatar-icon.png">
-<meta property="og:url" content="https://panicoenlaxbox.com/post/">
+<meta property="og:url" content="https://panicoenlaxbox.com/post/duck-typing-python/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programación desordenada">
-<meta name=twitter:title content="Posts">
+<meta name=twitter:title content="Duck typing en python">
+<meta name=twitter:description content="El Duck typing es una forma de tipado estructural que permite definir interfaces de objetos, que no estando relacionados, se comportan de forma similar.">
 <meta name=twitter:image content="https://panicoenlaxbox.com/img/avatar-icon.png">
 <meta name=twitter:card content="summary">
 <meta name=twitter:site content="@panicoenlaxbox">
@@ -102,7 +106,7 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <div class=post-heading>
-<h1>Posts</h1>
+<h1>Duck typing en python</h1>
 <span class=post-meta>
 <i class="fas fa-calendar"></i>&nbsp;Publicado el December 12, 2021
 </span>
@@ -131,179 +135,171 @@
 <div class=container role=main>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=posts-list>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/duck-typing-python/>
-<h2 class=post-title>Duck typing en python</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el December 12, 2021
-</span>
-</p>
-<div class=post-entry>
+<article role=main class=blog-post>
 <p>El <a href=https://es.wikipedia.org/wiki/Duck_typing>Duck typing</a> es una forma de tipado estructural que permite definir interfaces de objetos, que no estando relacionados, se comportan de forma similar.</p>
-<a href=https://panicoenlaxbox.com/post/duck-typing-python/ class=post-read-more>[Leer más]</a>
-</div>
+<blockquote>
+<p>If it walks like a duck and it quacks like a duck, then it must be a duck</p>
+</blockquote>
+<p>Es decir, si el objeto cumple con la interfaz definida, entonces es un pato (dando igual que sea un pato o una gallina).</p>
+<p>Sin la ayuda de ningún artefacto, es muy sencillo de usar en Python porque es un lenguaje dinámico.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Any</span>
+
+
+<span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=n>obj</span><span class=p>:</span> <span class=n>Any</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+    <span class=n>obj</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
+
+
+<span class=k>class</span> <span class=nc>Airplane</span><span class=p>:</span>
+    <span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Starting airplane&#34;</span><span class=p>)</span>
+
+
+<span class=k>class</span> <span class=nc>Computer</span><span class=p>:</span>
+    <span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Starting computer&#34;</span><span class=p>)</span>
+
+
+<span class=n>an_airplane</span> <span class=o>=</span> <span class=n>Airplane</span><span class=p>()</span>
+<span class=n>start</span><span class=p>(</span><span class=n>an_airplane</span><span class=p>)</span>
+<span class=n>a_computer</span> <span class=o>=</span> <span class=n>Computer</span><span class=p>()</span>
+<span class=n>start</span><span class=p>(</span><span class=n>a_computer</span><span class=p>)</span>
+</code></pre></div><p>Si queremos añadir más seguridad a nuestro código y que no explote en tiempo de ejecución, podemos usar el método el método <code>hasattr</code>.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Any</span>
+
+
+<span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=n>obj</span><span class=p>:</span> <span class=n>Any</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+    <span class=k>if</span> <span class=nb>hasattr</span><span class=p>(</span><span class=n>obj</span><span class=p>,</span> <span class=s2>&#34;start&#34;</span><span class=p>):</span>
+        <span class=n>obj</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=k>raise</span> <span class=ne>TypeError</span><span class=p>(</span><span class=s2>&#34;Object does not have a start method&#34;</span><span class=p>)</span>
+
+
+<span class=k>class</span> <span class=nc>Airplane</span><span class=p>:</span>
+    <span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Starting airplane&#34;</span><span class=p>)</span>
+
+
+<span class=k>class</span> <span class=nc>Computer</span><span class=p>:</span>
+    <span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Starting computer&#34;</span><span class=p>)</span>
+
+
+<span class=k>class</span> <span class=nc>Person</span><span class=p>:</span>
+    <span class=k>pass</span>
+
+
+<span class=n>an_airplane</span> <span class=o>=</span> <span class=n>Airplane</span><span class=p>()</span>
+<span class=n>start</span><span class=p>(</span><span class=n>an_airplane</span><span class=p>)</span>
+<span class=n>a_computer</span> <span class=o>=</span> <span class=n>Computer</span><span class=p>()</span>
+<span class=n>start</span><span class=p>(</span><span class=n>a_computer</span><span class=p>)</span>
+<span class=n>a_person</span> <span class=o>=</span> <span class=n>Person</span><span class=p>()</span>
+<span class=n>start</span><span class=p>(</span><span class=n>a_person</span><span class=p>)</span>  <span class=c1># You can&#39;t start a person</span>
+</code></pre></div><p>Si usamos una clase base con un método abstracto, podemos resolverlo de la siguiente manera:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>abc</span>
+
+
+<span class=k>class</span> <span class=nc>Startable</span><span class=p>(</span><span class=n>abc</span><span class=o>.</span><span class=n>ABC</span><span class=p>):</span>
+    <span class=nd>@abc</span><span class=o>.</span><span class=n>abstractmethod</span>
+    <span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>pass</span>
+
+
+<span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=n>obj</span><span class=p>:</span> <span class=n>Startable</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+    <span class=n>obj</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
+
+
+<span class=k>class</span> <span class=nc>Airplane</span><span class=p>(</span><span class=n>Startable</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Starting airplane&#34;</span><span class=p>)</span>
+
+
+<span class=k>class</span> <span class=nc>Computer</span><span class=p>(</span><span class=n>Startable</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Starting computer&#34;</span><span class=p>)</span>
+
+
+<span class=k>class</span> <span class=nc>Person</span><span class=p>:</span>
+    <span class=k>pass</span>
+
+
+<span class=n>an_airplane</span> <span class=o>=</span> <span class=n>Airplane</span><span class=p>()</span>
+<span class=n>start</span><span class=p>(</span><span class=n>an_airplane</span><span class=p>)</span>
+<span class=n>a_computer</span> <span class=o>=</span> <span class=n>Computer</span><span class=p>()</span>
+<span class=n>start</span><span class=p>(</span><span class=n>a_computer</span><span class=p>)</span>
+</code></pre></div><p>Aquí no estoy llamado a la función <code>start</code> con una instancia de <code>Person</code> porque no hereda de <code>Startable</code> y <code>mypy</code> me ha avisado en tiempo de compilación <code>error: Argument 1 to "start" has incompatible type "Person"; expected "Startable" [arg-type]</code></p>
+<p>Sin embargo, no queremos convertir Python en un lenguaje estático, así que la solución final pasa por usar un protocolo, que es una especie de interfaz informal que se asume implementará un objeto (por ejemplo si el objeto tiene el método <code>__len__</code> se dice implementa el protocolo <code>__len__</code> y entonces puedes escribir <code>len(obj)</code>.</p>
+<p>Con <code>typing.Protocol</code> podemos hacer explícito ese protocolo y en vez de usar el módulo <code>abc</code> y establecer una relación de parentesco entre clases, podemos usar una clase base que define el protocolo sólo para cumplir con el <em>Duck typing</em>, una interfaz al fin y al cabo (aquí cabría recordar que en Python existe la herencia múltiple, no se implementan interfaces con una palabra clave estilo <code>implements</code> o algo similar, simplemente se hereda).</p>
+<p>No es tan potente como el tipado estructural de TypeScript, donde no hubiera hecho falta la clase <code>Startable</code> ni que que <code>Airplane</code> ni <code>Computer</code> heredaran de <code>Startable</code>, pero se le parece bastante.</p>
+<p>La idea está sacada de <a href=https://adamj.eu/tech/2021/05/18/python-type-hints-duck-typing-with-protocol/>Python Type Hints - Duck typing with Protocol</a>.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Protocol</span>
+
+
+<span class=k>class</span> <span class=nc>Startable</span><span class=p>(</span><span class=n>Protocol</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=k>pass</span>
+
+
+<span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=n>obj</span><span class=p>:</span> <span class=n>Startable</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+    <span class=n>obj</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
+
+
+<span class=k>class</span> <span class=nc>Airplane</span><span class=p>(</span><span class=n>Startable</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Starting airplane&#34;</span><span class=p>)</span>
+
+
+<span class=k>class</span> <span class=nc>Computer</span><span class=p>(</span><span class=n>Startable</span><span class=p>):</span>
+    <span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=kc>None</span><span class=p>:</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Starting computer&#34;</span><span class=p>)</span>
+
+
+<span class=k>class</span> <span class=nc>Person</span><span class=p>:</span>
+    <span class=k>pass</span>
+
+
+<span class=n>an_airplane</span> <span class=o>=</span> <span class=n>Airplane</span><span class=p>()</span>
+<span class=n>start</span><span class=p>(</span><span class=n>an_airplane</span><span class=p>)</span>
+<span class=n>a_computer</span> <span class=o>=</span> <span class=n>Computer</span><span class=p>()</span>
+<span class=n>start</span><span class=p>(</span><span class=n>a_computer</span><span class=p>)</span>
+</code></pre></div><p>De nuevo, <code>mypy</code> avisó de que <code>Person</code> no cumple con la interfaz, <code>error: Argument 1 to "start" has incompatible type "Person"; expected "Startable" [arg-type]</code></p>
+<p>¡Un saludo!</p>
 <div class=blog-tags>
 <a href=https://panicoenlaxbox.com/tags/python/>python</a>&nbsp;
 </div>
-</article>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/primeros-pasos-python/>
-<h2 class=post-title>Primeros pasos con Python</h2>
+<hr>
+<section id=social-share>
+<div class="list-inline footer-links">
+<div class=share-box aria-hidden=true>
+<ul class=share>
+<li>
+<a href="//twitter.com/share?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fduck-typing-python%2f&text=Duck%20typing%20en%20python&via=panicoenlaxbox" target=_blank title="Share on Twitter">
+<i class="fab fa-twitter"></i>
 </a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el November 2, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>Después de instalar Python ¿por dónde empiezo? ¿dónde instalo los paquetes? ¿uso <a href=https://pipenv-fork.readthedocs.io/en/latest/>pipenv</a> o <a href=https://python-poetry.org/>poetry</a>? ¿<a href=https://code.visualstudio.com/>VSCode</a> o <a href=https://www.jetbrains.com/es-es/pycharm/>PyCharm</a>?</p>
-<a href=https://panicoenlaxbox.com/post/primeros-pasos-python/ class=post-read-more>[Leer más]</a>
-</div>
-<div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/python/>python</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/trino-en-azure/>
-<h2 class=post-title>Trino en Azure</h2>
+</li>
+<li>
+<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fduck-typing-python%2f&title=Duck%20typing%20en%20python" target=_blank title="Share on LinkedIn">
+<i class="fab fa-linkedin"></i>
 </a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el October 11, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>La idea de este post es colocar en el mapa a <a href=https://Trino.io/>Trino</a> e instalarlo sobre un clúster de VMs en Azure. En realidad, es lo que me hubiera gustado encontrar hace unas semanas para ahorrarnos (a mí y a <a href=https://twitter.com/alexmiravet>Alejandro García Miravet</a>) un montón de prueba y error. Si alguien quiere probar Trino, espero que lo tenga un poco más fácil después de leer este post.</p>
-<a href=https://panicoenlaxbox.com/post/trino-en-azure/ class=post-read-more>[Leer más]</a>
+</li>
+</ul>
 </div>
-<div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/azure/>azure</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/trino/>trino</a>&nbsp;
 </div>
+</section>
+<h4 class=see-also>Ver también</h4>
+<ul>
+<li><a href=/post/primeros-pasos-python/>Primeros pasos con Python</a></li>
+<li><a href=/post/python-github-devops/>Crear un paquete Python y publicarlo en Azure DevOps con GitHub Actions</a></li>
+</ul>
 </article>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/hugo-azure-static-web-app/>
-<h2 class=post-title>Hugo en una Azure Static Web App</h2>
-<h3 class=post-subtitle>
-Publicar un sitio de Hugo en una Azure Static Web App con autenticación personalizada
-</h3>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el October 4, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>Después de <a href=https://www.panicoenlaxbox.com/post/hugo-github/>publicar el blog en Hugo</a>, en este post vamos a ver como usar una <a href=https://azure.microsoft.com/en-us/services/app-service/static/>Azure Static Web App</a> con <a href="https://docs.microsoft.com/en-us/azure/static-web-apps/authentication-custom?tabs=aad">autenticación personalizada</a> para poner on-line nuestro sitio de Hugo.</p>
-<a href=https://panicoenlaxbox.com/post/hugo-azure-static-web-app/ class=post-read-more>[Leer más]</a>
-</div>
-<div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/hugo/>hugo</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/azure/>azure</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/github/>github</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/install-spark-on-windows/>
-<h2 class=post-title>Instalar Spark en Windows</h2>
-<h3 class=post-subtitle>
-Y no morir en el intento
-</h3>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el September 15, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>Instalar <a href=https://spark.apache.org/>Spark</a> en Windows no es una tarea difícil, pero tampoco es un tema de pulsar Siguiente, Siguiente en un wizard, es un poquito rollo, la verdad.</p>
-<p>Como ya van varias veces que he tenido que instalarlo, mejor dejarlo por escrito para no tener que recordar todo esto la siguiente vez que tenga que hacerlo.</p>
-<a href=https://panicoenlaxbox.com/post/install-spark-on-windows/ class=post-read-more>[Leer más]</a>
-</div>
-<div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/spark/>spark</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/powershell-azure-resources/>
-<h2 class=post-title>Script de PowerShell para listar recursos de Azure</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el August 18, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>Me gusta PowerShell, pero reconozco que siempre que tengo que hacer un script con él me cuesta recordar su sintaxis y el paradigma que propone (la línea de comandos orientada a objetos).</p>
-<a href=https://panicoenlaxbox.com/post/powershell-azure-resources/ class=post-read-more>[Leer más]</a>
-</div>
-<div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/powershell/>powershell</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/azure/>azure</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/nuget-package-azure-devops/>
-<h2 class=post-title>Crear un paquete Nuget y publicarlo en Azure DevOps</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el August 5, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>Crear un paquete nuget y publicarlo puede ser sencillo, pero también es una operación que nos puede llevar más tiempo del previsto. La idea de este post es automatizar (en la medida de lo posible) la creación y publicación de un paquete nuget en un feed de Azure DevOps.</p>
-<a href=https://panicoenlaxbox.com/post/nuget-package-azure-devops/ class=post-read-more>[Leer más]</a>
-</div>
-<div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/csharp/>csharp</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/nuget/>nuget</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/azuredevops/>azuredevops</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/hugo-github/>
-<h2 class=post-title>Hugo en GitHub</h2>
-<h3 class=post-subtitle>
-Cómo crear un blog de Hugo y publicarlo en GitHub pages
-</h3>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el June 6, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>Llevaba tiempo queriendo migrar mi blog de google a otra plataforma y <a href=https://gohugo.io/>Hugo</a> y <a href=https://github.com/>GitHub</a> me lo han puesto muy fácil.</p>
-<a href=https://panicoenlaxbox.com/post/hugo-github/ class=post-read-more>[Leer más]</a>
-</div>
-<div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/hugo/>hugo</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/github/>github</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/python-github-devops/>
-<h2 class=post-title>Crear un paquete Python y publicarlo en Azure DevOps con GitHub Actions</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el February 14, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>En este post, me gustaría compartir una forma de crear un paquete de Python, publicarlo en un feed privado con una GitHub action y consumirlo en una aplicación cliente.</p>
-<a href=https://panicoenlaxbox.com/post/python-github-devops/ class=post-read-more>[Leer más]</a>
-</div>
-<div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/python/>python</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/github/>github</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/azuredevops/>azuredevops</a>&nbsp;
-</div>
-</article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://panicoenlaxbox.com/post/primeros-pasos-python/ data-toggle=tooltip data-placement=top title="Primeros pasos con Python">&larr; Artículo anterior</a>
+</li>
+</ul>
+<div class=disqus-comments>
+<button id=show-comments class="btn btn-default" type=button>Mostrar <span class=disqus-comment-count data-disqus-url=https://panicoenlaxbox.com/post/duck-typing-python>comentarios</span></button>
+<div id=disqus_thread></div>
+<script type=text/javascript>var disqus_config=function(){this.page.url='https://panicoenlaxbox.com/post/duck-typing-python'}</script>
 </div>
 </div>
 </div>
@@ -346,7 +342,7 @@ Cómo crear un blog de Hugo y publicarlo en GitHub pages
 </a>
 </li>
 <li>
-<a href=/post/index.xml title=RSS>
+<a href title=RSS>
 <span class="fa-stack fa-lg">
 <i class="fas fa-circle fa-stack-2x"></i>
 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
