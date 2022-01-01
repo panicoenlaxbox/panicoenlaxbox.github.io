@@ -4,17 +4,17 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>No sin mi prompt - Programación desordenada</title>
-<meta name=description content="Prompt de PowerShell como un señor">
+<meta name=description content="Prompt de PowerShell en Windows y de bash en WSL, como un señor">
 <meta name=author content="Sergio León"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Programación desordenada","url":"https:\/\/panicoenlaxbox.com"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/panicoenlaxbox.com"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/powershell-prompt\/","name":"No sin mi prompt"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"No sin mi prompt","description":"En este post veremos como configurar el prompt de PowerShell para que nuestra consola sea más amigable. Como dice el refrán, \u0026ldquo;No solo hay que serlo, sino parecerlo\u0026rdquo;.\n","inLanguage":"es","wordCount":595,"datePublished":"2021-12-30T12:10:00","dateModified":"2021-12-30T12:10:00","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["powershell"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/powershell-prompt\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/powershell-prompt\/","name":"No sin mi prompt"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"No sin mi prompt","description":"Como dice el refrán, \u0026ldquo;No solo hay que serlo, sino parecerlo\u0026rdquo;, así que en este post veremos como configurar el prompt de PowerShell en Windows y de bash en Ubuntu para que sean más amigables.\n","inLanguage":"es","wordCount":912,"datePublished":"2021-12-30T12:10:00","dateModified":"2021-12-30T12:10:00","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["powershell"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/powershell-prompt\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
 <meta property="og:title" content="No sin mi prompt">
-<meta property="og:description" content="Prompt de PowerShell como un señor">
+<meta property="og:description" content="Prompt de PowerShell en Windows y de bash en WSL, como un señor">
 <meta property="og:image" content="https://panicoenlaxbox.com/img/avatar-icon.png">
 <meta property="og:url" content="https://panicoenlaxbox.com/post/powershell-prompt/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programación desordenada">
 <meta name=twitter:title content="No sin mi prompt">
-<meta name=twitter:description content="Prompt de PowerShell como un señor">
+<meta name=twitter:description content="Prompt de PowerShell en Windows y de bash en WSL, como un señor">
 <meta name=twitter:image content="https://panicoenlaxbox.com/img/avatar-icon.png">
 <meta name=twitter:card content="summary">
 <meta name=twitter:site content="@panicoenlaxbox">
@@ -107,7 +107,7 @@
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <div class=post-heading>
 <h1>No sin mi prompt</h1>
-<h2 class=post-subheading>Prompt de PowerShell como un señor</h2>
+<h2 class=post-subheading>Prompt de PowerShell en Windows y de bash en WSL, como un señor</h2>
 <span class=post-meta>
 <i class="fas fa-calendar"></i>&nbsp;Publicado el December 30, 2021
 </span>
@@ -137,13 +137,13 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <article role=main class=blog-post>
-<p>En este post veremos como configurar el prompt de PowerShell para que nuestra consola sea más amigable. Como dice el refrán, <em>&ldquo;No solo hay que serlo, sino parecerlo&rdquo;</em>.</p>
+<p>Como dice el refrán, <em>&ldquo;No solo hay que serlo, sino parecerlo&rdquo;</em>, así que en este post veremos como configurar el prompt de <em>PowerShell</em> en Windows y de <em>bash</em> en <em>Ubuntu</em> para que sean más amigables.</p>
 <p>El propósito es guardar una buena chuleta de los pasos a seguir, porque siempre que me toca hacerlo me da cierta pereza volver a investigarlo.</p>
 <p>La idea está sacada de un post de <a href=https://twitter.com/shanselman>Scott Hanselman</a> <a href=https://www.hanselman.com/blog/my-ultimate-powershell-prompt-with-oh-my-posh-and-the-windows-terminal>https://www.hanselman.com/blog/my-ultimate-powershell-prompt-with-oh-my-posh-and-the-windows-terminal</a> e incluso también tiene un <a href="https://www.youtube.com/watch?v=lu__oGZVT98">vídeo en YouTube</a> si te gusta más.</p>
-<p>Lo primero es elegir consola/terminal y parece claro, que hoy en día, la opción preferida es la de Windows Terminal que puedes <a href="https://www.microsoft.com/es-es/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab">instalar desde la Windows Store</a> y seguir su desarrollo desde <a href=https://github.com/microsoft/terminal>su repositorio en GitHub</a>. Instalándola desde la tienda de Windows te aseguras que tendrás siempre la versión más actualizada.</p>
+<p>Lo primero es elegir consola/terminal y parece claro, que hoy en día, la opción preferida es la de <em>Windows Terminal</em> que puedes <a href="https://www.microsoft.com/es-es/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab">instalar desde la Windows Store</a> y seguir su desarrollo desde <a href=https://github.com/microsoft/terminal>su repositorio en GitHub</a>. Instalándola desde la tienda de <em>Windows</em> te aseguras que tendrás siempre la versión más actualizada.</p>
 <p>En este <a href=https://docs.microsoft.com/es-es/windows/terminal/tutorials/custom-prompt-setup>otro post</a> (ya desde la documentación oficial de Microsoft) también explican bien como configurar la terminal.</p>
 <p>Los pasos a seguir son:</p>
-<p>Instalar una <a href=https://www.nerdfonts.com/>fuente con glifos</a> (porque queremos iconos chulos en el prompt), por ejemplo <em>Caskaydia Cove Nerd Font</em> y seleccionarla en Windows Terminal para el shell de PowerShell.</p>
+<p>Instalar una <a href=https://www.nerdfonts.com/>fuente con glifos</a> (porque queremos iconos chulos en el prompt), por ejemplo <em>Caskaydia Cove Nerd Font</em> y seleccionarla en <em>Windows Terminal</em> para el shell de <em>PowerShell</em>. Adicionalmente, también podrías establecer esta fuente para la terminal de <em>VSCode</em>, con la propiedad <code>terminal.integrated.fontFamily</code>.</p>
 <p>Instalar <a href=https://ohmyposh.dev/>oh-my-posh</a> con <code>Install-Module oh-my-posh -Scope CurrentUser</code>.</p>
 <p>También convendría instalar <a href=https://github.com/devblackops/Terminal-Icons>Terminal-Icons</a> con <code>Install-Module Terminal-Icons -Scope CurrentUser</code> para mostrar iconos conocidos de ficheros y directorios con el comando <code>dir</code> o <code>ls</code>.</p>
 <p>Después edita tu fichero de perfil con <code>code $PROFILE</code> y agrega lo siguiente:</p>
@@ -151,9 +151,9 @@
 <span class=nb>Import-Module</span> <span class=n>-Name</span> <span class=nb>Terminal-Icons</span>
 <span class=nb>Set-PoshPrompt</span> <span class=n>-Theme</span> <span class=n>agnoster</span>
 </code></pre></div><p>Yo no los uso, pero también puedes probar <a href=https://github.com/dahlbyk/posh-git>posh-git</a> y <a href=https://github.com/PowerShell/PSReadLine>PSReadLine</a> si quieres auto-completado e incluso completado predictivo de tus comandos.</p>
-<p>Hasta aquí todo bien, pero ahora tendrás que elegir que prompt te gusta más.</p>
+<p>Hasta aquí todo bien, pero ahora tendrás que elegir que <a href=https://ohmyposh.dev/docs/themes>tema</a> te gusta más, yo he puesto <a href=https://ohmyposh.dev/docs/themes#agnoster>agnoster</a> inicialmente simplemente para que veas que funciona.</p>
 <p>Puedes ver una <em>preview</em> de todas los temas disponibles con <code>Get-PoshThemes</code> y establecer uno con <code>Set-PoshPrompt -Theme &lt;nombre del tema></code>.</p>
-<p>Después de estar un buen rato eligiendo el tema, y aquí es importante que te muevas a un directorio con un repositorio de git, con un fichero <code>.csproj</code> de <em>.net</em>, con un entorno virtual de <em>Python</em> o algo similar porque la preview te mostrará como quedaría&mldr; he llegado a la conclusión de que lo mejor es crearte tu propio prompt y entender como funciona <em>oh-my-post</em>.</p>
+<p>Después de estar un buen rato eligiendo el tema, y aquí es importante que te muevas a un directorio con un repositorio de git, con un fichero <code>.csproj</code> de <em>.net</em>, con un entorno virtual de <em>Python</em> o algo similar porque la preview te mostrará como quedaría&mldr; he llegado a la conclusión de que lo mejor es crearte tu propio prompt y entender como funciona <em>oh-my-posh</em>.</p>
 <p>Realmente es muy sencillo y la parte que hay que entender son los <a href=https://ohmyposh.dev/docs/>segments</a> que son las distintas partes en las que se divide el prompt. Además, como los ficheros <em>&lt;tema>.omp.json</em> incluyen un esquema JSON, funcionará el autocompletado en VSCode y eso hará la tarea más sencilla.</p>
 <p>Puedes empezar copiando el fichero <em>&lt;tema>.omp.json</em> y editarlo según tus preferencias. La ruta donde está guardados estos ficheros te la da el comando <code>Get-PoshThemes</code>.</p>
 <p>En mi caso, este es mi prompt:</p>
@@ -219,6 +219,17 @@
 <p>Algo que me ha resultado útil durante la edición ha sido cambiar la fuente de VSCode a <em>Caskaydia Cove Nerd Font</em> y usar la extensión <a href="https://marketplace.visualstudio.com/items?itemName=cwan.native-ascii-converter">Native-ASCII Converter</a> para cambiar entre caracteres en notación Unicode y su representación real.</p>
 <p>Es decir, en vez de ver <code>"prefix": " \ue70c "</code>, ver el símbolo de Visual Studio.</p>
 <p><img src=images/visual_studio.png alt=visual_studio></p>
+<p>En cuando a <em>WSL</em>, y puesto que tarde o temprano acabarás usandolo, vamos a ver como configurar <em>bash</em> en <em>Ubuntu</em> y que luzca igual que el prompt de <em>PowerShell</em> de <em>Windows</em>.</p>
+<p>Lo primero es que yo asumo (es mi caso) que estarás usando <em>Ubuntu</em> como OS y <em>bash</em> como shell.</p>
+<p>Puedes ejecutar los siguientes comandos para confirmarlo:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>cat /etc/shells  <span class=c1># View all installed shells</span>
+<span class=nb>echo</span> <span class=nv>$SHELL</span>  <span class=c1># View current shell</span>
+lsb_release -a  <span class=c1># View OS information</span>
+</code></pre></div><p>En relación a la instalación de <em>oh-my-posh</em> en <em>Linux</em>, lo mejor es seguir las <a href=https://ohmyposh.dev/docs/linux>instrucciones del sitio oficial</a>. Al final acabarás con un fichero <em>&lt;tema>.omp.json</em> en tu carpeta de inicio y tendrás que editar el fichero <code>.bashrc</code> (cosa que puedes hacer con el comando <code>code .bashrc</code>, sin tener que usar <em>vim</em>, <em>nano</em> o similar) para agregar la siguiente instrucción:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=nb>eval</span> <span class=s2>&#34;</span><span class=k>$(</span>oh-my-posh --init --shell bash --config ~/YOUR_THEME.omp.json<span class=k>)</span><span class=s2>&#34;</span>
+</code></pre></div><p>Como ahora vas a querer usar la fuente <em>CaskaydiaCove NF</em> tanto en el prompt de <em>PowerShell</em> como en el de <em>bash</em>, lo mejor sería editar la configuración de <em>Windows Terminal</em> y establecer la fuente en la sección <em>Profiles > Defaults</em>, así el cambio será efectivo para todos los perfiles.</p>
+<p>Además, para que la consola de <em>Ubuntu</em> parezca todavía más genuina, podrías editar el fichero de configuración de <em>Windows Terminal</em> (fíjate que ahora sí tendrás que editarlo a mano&mldr; y eso se hace pulsando la tecla <em>Shift</em> cuando hagas click en la opción <em>Settings</em> del menú) y agregar el <code>scheme</code> de <a href=https://docs.microsoft.com/es-es/windows/terminal/custom-terminal-gallery/raspberry-ubuntu>Raspberry</a>, que es lo más cercano en colores que he logrado encontrar a la consola nativa de <em>Ubuntu</em>. A continuación, selecciona este nuevo tema para <em>Ubuntu</em> en la configuración de <em>Windows Terminal</em> y parecerá (casi) que estás en un <em>Ubuntu</em> de verdad.</p>
+<p><img src=images/ubuntu.png alt=ubuntu></p>
 <p>Un saludo!</p>
 <div class=blog-tags>
 <a href=https://panicoenlaxbox.com/tags/powershell/>powershell</a>&nbsp;
