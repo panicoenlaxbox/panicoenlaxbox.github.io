@@ -6,7 +6,7 @@
 <title>No sin mi prompt - Programación desordenada</title>
 <meta name=description content="Prompt de PowerShell en Windows y de bash en WSL, como un señor">
 <meta name=author content="Sergio León"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Programación desordenada","url":"https:\/\/panicoenlaxbox.com"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/panicoenlaxbox.com"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/powershell-prompt\/","name":"No sin mi prompt"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"No sin mi prompt","description":"Como dice el refrán, \u0026ldquo;No solo hay que serlo, sino parecerlo\u0026rdquo;, así que en este post veremos como configurar el prompt de PowerShell en Windows y de bash en Ubuntu para que sean más amigables.\n","inLanguage":"es","wordCount":912,"datePublished":"2021-12-30T12:10:00","dateModified":"2021-12-30T12:10:00","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["powershell"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/powershell-prompt\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/powershell-prompt\/","name":"No sin mi prompt"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"No sin mi prompt","description":"Como dice el refrán, \u0026ldquo;No solo hay que serlo, sino parecerlo\u0026rdquo;, así que en este post veremos como configurar el prompt de PowerShell en Windows y de bash en Ubuntu para que sean más amigables.\n","inLanguage":"es","wordCount":1010,"datePublished":"2021-12-30T12:10:00","dateModified":"2021-12-30T12:10:00","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["powershell"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/powershell-prompt\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
 <meta property="og:title" content="No sin mi prompt">
 <meta property="og:description" content="Prompt de PowerShell en Windows y de bash en WSL, como un señor">
 <meta property="og:image" content="https://panicoenlaxbox.com/img/avatar-icon.png">
@@ -230,7 +230,25 @@ lsb_release -a  <span class=c1># View OS information</span>
 </code></pre></div><p>Como ahora vas a querer usar la fuente <em>CaskaydiaCove NF</em> tanto en el prompt de <em>PowerShell</em> como en el de <em>bash</em>, lo mejor sería editar la configuración de <em>Windows Terminal</em> y establecer la fuente en la sección <em>Profiles > Defaults</em>, así el cambio será efectivo para todos los perfiles.</p>
 <p>Además, para que la consola de <em>Ubuntu</em> parezca todavía más genuina, podrías editar el fichero de configuración de <em>Windows Terminal</em> (fíjate que ahora sí tendrás que editarlo a mano&mldr; y eso se hace pulsando la tecla <em>Shift</em> cuando hagas click en la opción <em>Settings</em> del menú) y agregar el <code>scheme</code> de <a href=https://docs.microsoft.com/es-es/windows/terminal/custom-terminal-gallery/raspberry-ubuntu>Raspberry</a>, que es lo más cercano en colores que he logrado encontrar a la consola nativa de <em>Ubuntu</em>. A continuación, selecciona este nuevo tema para <em>Ubuntu</em> en la configuración de <em>Windows Terminal</em> y parecerá (casi) que estás en un <em>Ubuntu</em> de verdad.</p>
 <p><img src=images/ubuntu.png alt=ubuntu></p>
-<p>Un saludo!</p>
+<p>Por último, si trabajas también con <a href=https://www.jetbrains.com/pycharm/>PyCharm</a>, la terminal integrada no mostrará bien las <em>Nerd Fonts</em>, lo cual es bastante molesto, yo he acabado por detectar si la shell está o no dentro de PyCharm para hacer un <em>graceful degradation</em> de la mejor forma que se me ha ocurrido.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=k>if</span> <span class=p>(</span><span class=nb>Test-Path</span> <span class=s1>&#39;env:IDEA_INITIAL_DIRECTORY&#39;</span><span class=p>)</span> <span class=p>{</span>
+    <span class=k>function</span> <span class=n>Prompt</span><span class=p>()</span> <span class=p>{</span>
+        <span class=nv>$prompt</span> <span class=p>=</span> <span class=s2>&#34;PS &#34;</span>
+        <span class=k>if</span> <span class=p>(</span><span class=nb>Test-Path</span> <span class=s1>&#39;env:VIRTUAL_ENV&#39;</span><span class=p>)</span> <span class=p>{</span>
+            <span class=nv>$prompt</span> <span class=p>=</span> <span class=s2>&#34;(&#34;</span> <span class=p>+</span> <span class=p>((</span><span class=nv>$env:VIRTUAL_ENV</span> <span class=n>-split</span> <span class=s2>&#34;\\&#34;</span><span class=p>)[-</span><span class=n>1</span><span class=p>]</span> <span class=n>-split</span> <span class=s2>&#34;-&#34;</span><span class=p>)[</span><span class=n>0</span><span class=p>]</span> <span class=p>+</span> <span class=s2>&#34;) &#34;</span>
+        <span class=p>}</span>      
+        <span class=nv>$prompt</span> <span class=p>+=</span> <span class=nv>$pwd</span><span class=p>.</span><span class=n>Path</span>
+        <span class=nb>Write-Host</span> <span class=nv>$prompt</span> <span class=n>-NoNewline</span>
+        <span class=s2>&#34;&gt; &#34;</span>
+    <span class=p>}</span>
+<span class=p>}</span>
+<span class=k>else</span> <span class=p>{</span>
+    <span class=nb>Import-Module</span> <span class=nb>oh-my</span><span class=n>-posh</span>
+    <span class=nb>Set-PoshPrompt</span> <span class=n>-Theme</span> <span class=n>panicoenlaxbox</span>
+    <span class=nb>Import-Module</span> <span class=n>-Name</span> <span class=nb>Terminal-Icons</span>
+<span class=p>}</span>
+
+</code></pre></div><p>Un saludo!</p>
 <div class=blog-tags>
 <a href=https://panicoenlaxbox.com/tags/powershell/>powershell</a>&nbsp;
 </div>
