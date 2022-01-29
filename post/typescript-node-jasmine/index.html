@@ -3,18 +3,18 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>TypeScript playground - Programación desordenada</title>
-<meta name=description content="The main purpose of this post is to create (with the less number of steps and understanding the whole process) a simple project where we can program with TypeScript in Node, have tests written with Jasmine, and code coverage with Istanbul.">
+<title>TypeScript and Jasmine playground - Programación desordenada</title>
+<meta name=description content="The main purpose of this post is to create (with the less number of steps and understanding the whole process) a simple project where we can develop with TypeScript in Node, have tests written with Jasmine, and get code coverage with Istanbul.">
 <meta name=author content="Sergio León"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Programación desordenada","url":"https:\/\/panicoenlaxbox.com"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/panicoenlaxbox.com"}</script>
-<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/typescript-node-jasmine\/","name":"Type script playground"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"TypeScript playground","description":"The main purpose of this post is to create (with the less number of steps and understanding the whole process) a simple project where we can program with TypeScript in Node, have tests written with Jasmine, and code coverage with Istanbul.\n","inLanguage":"es","wordCount":966,"datePublished":"2022-01-28T13:14:46","dateModified":"2022-01-28T13:14:46","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["typescript"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/typescript-node-jasmine\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
-<meta property="og:title" content="TypeScript playground">
-<meta property="og:description" content="The main purpose of this post is to create (with the less number of steps and understanding the whole process) a simple project where we can program with TypeScript in Node, have tests written with Jasmine, and code coverage with Istanbul.">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/typescript-node-jasmine\/","name":"Type script and jasmine playground"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":"TypeScript and Jasmine playground","description":"The main purpose of this post is to create (with the less number of steps and understanding the whole process) a simple project where we can develop with TypeScript in Node, have tests written with Jasmine, and get code coverage with Istanbul.\n","inLanguage":"es","wordCount":1060,"datePublished":"2022-01-28T13:14:46","dateModified":"2022-01-28T13:14:46","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["typescript"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/typescript-node-jasmine\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
+<meta property="og:title" content="TypeScript and Jasmine playground">
+<meta property="og:description" content="The main purpose of this post is to create (with the less number of steps and understanding the whole process) a simple project where we can develop with TypeScript in Node, have tests written with Jasmine, and get code coverage with Istanbul.">
 <meta property="og:image" content="https://panicoenlaxbox.com/img/avatar-icon.png">
 <meta property="og:url" content="https://panicoenlaxbox.com/post/typescript-node-jasmine/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programación desordenada">
-<meta name=twitter:title content="TypeScript playground">
-<meta name=twitter:description content="The main purpose of this post is to create (with the less number of steps and understanding the whole process) a simple project where we can program with TypeScript in Node, have tests written with …">
+<meta name=twitter:title content="TypeScript and Jasmine playground">
+<meta name=twitter:description content="The main purpose of this post is to create (with the less number of steps and understanding the whole process) a simple project where we can develop with TypeScript in Node, have tests written with …">
 <meta name=twitter:image content="https://panicoenlaxbox.com/img/avatar-icon.png">
 <meta name=twitter:card content="summary">
 <meta name=twitter:site content="@panicoenlaxbox">
@@ -106,7 +106,7 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <div class=post-heading>
-<h1>TypeScript playground</h1>
+<h1>TypeScript and Jasmine playground</h1>
 <span class=post-meta>
 <i class="fas fa-calendar"></i>&nbsp;Publicado el January 28, 2022
 </span>
@@ -136,17 +136,17 @@
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <article role=main class=blog-post>
-<p>The main purpose of this post is to create (with the less number of steps and understanding the whole process) a simple project where we can program with TypeScript in Node, have tests written with Jasmine, and code coverage with Istanbul.</p>
-<p>First of all, we need to know what <code>node</code> and <code>npm</code> versions you have installed in your system.</p>
+<p>The main purpose of this post is to create (with the less number of steps and understanding the whole process) a simple project where we can develop with TypeScript in Node, have tests written with Jasmine, and get code coverage with Istanbul.</p>
+<p>First of all, you should check what <code>node</code> and <code>npm</code> versions you have installed in your system.</p>
 <blockquote>
-<p>It&rsquo;s not a great step, but at least, you will know that <code>node</code> and <code>npm</code> are installed and working.</p>
+<p>It&rsquo;s not a great step, but at least, you will confirm that <code>node</code> and <code>npm</code> are installed and working properly.</p>
 </blockquote>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>node</span> <span class=p>-</span><span class=n>-version</span>
 <span class=n>npm</span> <span class=p>-</span><span class=n>-version</span>
-</code></pre></div><p>Maybe, could be important for you to start with a clean environment. If it&rsquo;s your case, you can list your globally installed packages and, if you want, uninstall all with only one command.</p>
+</code></pre></div><p>Maybe, it could be important for you to start with a clean environment (for me it&rsquo;s always a good starting point). If it&rsquo;s also your case, you can list your globally installed packages and, if you want, uninstall all with only one command.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>npm</span> <span class=n>list</span> <span class=n>-g</span> <span class=p>-</span><span class=n>-depth</span><span class=p>=</span><span class=n>0</span>
 
-<span class=c># Seek and destroy</span>
+<span class=c># Seek and destroy, be carefully</span>
 <span class=n>npm</span> <span class=n>list</span> <span class=n>-gp</span> <span class=p>-</span><span class=n>-depth</span><span class=p>=</span><span class=n>0</span> <span class=p>|</span> 
 <span class=nb>Where-Object</span> <span class=p>{</span> <span class=nv>$_</span> <span class=o>-notlike</span> <span class=s1>&#39;*npm&#39;</span> <span class=p>}</span> <span class=p>|</span> 
 <span class=nb>ForEach-Object</span> <span class=p>{</span> 
@@ -154,16 +154,16 @@
 	<span class=nb>Write-Host</span> <span class=nv>$package</span>
 	<span class=n>npm</span> <span class=nb>rm </span><span class=n>-g</span> <span class=nv>$package</span>
 <span class=p>}</span>
-</code></pre></div><p>Now, you must create a directory and install all the dependencies in this local directory. In this way, we will not pollute the global installation.</p>
+</code></pre></div><p>Now, you must create a directory and install all the dependencies in it. In this way, we will not pollute the global installation.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>mkdir</span> <span class=nb>ts-example</span>
 <span class=nb>cd </span><span class=p>.\</span><span class=nb>ts-example</span><span class=p>\</span>
-</code></pre></div><p>For TypeScript, we will use <a href=https://typestrong.org/ts-node/>ts-node</a> that eases the transpilation process.</p>
+</code></pre></div><p>For easing the transpilation process of TypeScript, we will use <a href=https://typestrong.org/ts-node/>ts-node</a>.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>npm</span> <span class=n>init</span> <span class=p>-</span><span class=n>-yes</span>  <span class=c># It will create package.json file</span>
 <span class=n>npm</span> <span class=n>install</span> <span class=p>-</span><span class=n>-save-dev</span> <span class=n>typescript</span> <span class=nb>ts-node</span> <span class=nv>@types</span><span class=p>/</span><span class=n>node</span>
-</code></pre></div><p>For working with TypeScript, we will use a very basic example, but I think it&rsquo;s enough to test the installation.</p>
+</code></pre></div><p>To test TypeScript installation, we will use a very basic example that it should be enough.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=c1>// main.ts
 </span><span class=c1></span><span class=kr>import</span> <span class=p>{</span> <span class=nx>User</span> <span class=p>}</span> <span class=kr>from</span> <span class=s2>&#34;./user&#34;</span><span class=p>;</span>  <span class=c1>// A TypeScript interface
-</span><span class=c1></span><span class=kr>import</span> <span class=nx>path</span> <span class=kr>from</span> <span class=s1>&#39;path&#39;</span><span class=p>;</span>  <span class=c1>// A node built-in module
+</span><span class=c1></span><span class=kr>import</span> <span class=nx>path</span> <span class=kr>from</span> <span class=s1>&#39;path&#39;</span><span class=p>;</span>  <span class=c1>// A Node.js built-in module
 </span><span class=c1></span>
 <span class=kr>const</span> <span class=nx>user</span>: <span class=kt>User</span> <span class=o>=</span> <span class=p>{</span>
     <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;Sergio&#34;</span><span class=p>,</span>
@@ -185,10 +185,8 @@
         <span class=k>return</span> <span class=s2>&#34;baz&#34;</span><span class=p>;</span>
     <span class=p>}</span>
 <span class=p>}</span>
-</code></pre></div><p>When you have created these 3 files in the root of the project, we can continue.</p>
-<p>You can test <code>ts-node</code> with this command:</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>npx</span> <span class=nb>ts-node</span> <span class=p>.\</span><span class=n>main</span><span class=p>.</span><span class=n>ts</span>
-</code></pre></div><p>I&rsquo;m assuming that you are using VSCode, so we are going to create a configuration to launch or debug the current .ts file without the need to execute the previous command. For this, you must create the file <code>.vscode\launch.json</code> with the following content:</p>
+</code></pre></div><p>When you have created these 3 files at the root of the project, you should test <code>ts-node</code> with this command <code>npx ts-node .\main.ts</code></p>
+<p>I&rsquo;m assuming that you are using VSCode, so we will create a configuration to launch or debug the current .ts file without the need to execute the previous command. For this, you must create the file <code>.vscode\launch.json</code> with the following content.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
     <span class=nt>&#34;version&#34;</span><span class=p>:</span> <span class=s2>&#34;0.2.0&#34;</span><span class=p>,</span>
     <span class=nt>&#34;configurations&#34;</span><span class=p>:</span> <span class=p>[</span>
@@ -204,32 +202,60 @@
         <span class=p>}</span>
     <span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div><p>Now, you can execute the current .ts file with Ctrl+F5 or even debug it with F5.</p>
-<p>Our next step will be to install a typescript linter. We are humans and I&rsquo;m sure that we will do some mistakes. It seems that the de-facto standard is to use <a href=https://eslint.org/>eslint</a>.</p>
+</code></pre></div><p>At this moment, you will be able to execute the current .ts file with Ctrl+F5 or even debug it with F5.</p>
+<p>Our next step will be to install a typescript linter. We are humans and I&rsquo;m sure that we will do some mistakes, we need a copilot. It seems that the de-facto standard for this subject is to use <a href=https://eslint.org/>eslint</a>.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>npm</span> <span class=n>install</span> <span class=p>-</span><span class=n>-save-dev</span> <span class=n>eslint</span>
 <span class=n>npx</span> <span class=n>eslint</span> <span class=p>-</span><span class=n>-init</span> <span class=c># It will create .eslintrc.json file</span>
-</code></pre></div><p>For <code>npx eslint --init</code>, I have answered with the following options:</p>
+</code></pre></div><p>The execution of <code>npx eslint --init</code> will ask you several questions. I have answered with the following choices:</p>
 <ul>
-<li><em>To check syntax and find problems</em></li>
-<li><em>JavaScript modules (import/export)</em></li>
-<li><em>None of these</em></li>
-<li><em>Yes</em></li>
-<li><em>Node</em></li>
-<li><em>JSON</em></li>
-<li><em>Yes</em></li>
+<li>How would you like to use ESLint?
+<ul>
+<li>To check syntax and find problems</li>
+</ul>
+</li>
+<li>What type of modules does your project use?
+<ul>
+<li>JavaScript modules (import/export)</li>
+</ul>
+</li>
+<li>Which framework does your project use?
+<ul>
+<li>None of these</li>
+</ul>
+</li>
+<li>Does your project use TypeScript?
+<ul>
+<li>Yes</li>
+</ul>
+</li>
+<li>Where does your code run?
+<ul>
+<li>Node</li>
+</ul>
+</li>
+<li>What format do you want your config file to be in?
+<ul>
+<li>JSON</li>
+</ul>
+</li>
+<li>Would you like to install them now with npm?
+<ul>
+<li>Yes</li>
+</ul>
+</li>
 </ul>
 <p>If you want to test the linter, a little change in <code>main.ts</code> will be enough to see it in action.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=kd>var</span> <span class=nx>user</span>: <span class=kt>User</span> <span class=o>=</span> <span class=p>{</span> <span class=c1>// var instead of const, not so good
 </span><span class=c1></span>    <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;Sergio&#34;</span><span class=p>,</span>
     <span class=nx>age</span>: <span class=kt>45</span>
 <span class=p>};</span>
-</code></pre></div><p>Now, you can execute <code>npx eslint .</code> and/or install the <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">official extension for VSCode</a>.</p>
-<p>In this last part of the bootstrapping, we will install <a href=https://jasmine.github.io/>jasmine</a> test framework and <a href=https://github.com/istanbuljs/nyc>instanbul</a> for the code coverage.</p>
-<p>For <code>jasmine</code>:</p>
+</code></pre></div><p>Now, both <code>npx eslint .</code> in the command line and VSCode using the <a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">official extension for VSCode</a> will advise you that <code>var</code> is evil.</p>
+<p>In this last part of the project bootstrapping, we will install <a href=https://jasmine.github.io/>jasmine</a> test framework and <a href=https://github.com/istanbuljs/nyc>instanbul</a> for the code coverage.</p>
+<p>First it&rsquo;s the turn of <code>Jasmine</code>.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>npm</span> <span class=n>install</span> <span class=p>-</span><span class=n>-save-dev</span> <span class=n>jasmine</span> <span class=nv>@types</span><span class=p>/</span><span class=n>jasmine</span>
 <span class=n>npx</span> <span class=n>jasmine</span> <span class=n>init</span>  <span class=c># It will create spec\support\jasmine.json file</span>
 <span class=n>npx</span> <span class=n>tsc</span> <span class=p>-</span><span class=n>-init</span>  <span class=c># It will create tsconfig.json file</span>
-</code></pre></div><p>Now, we have change some configuration in <code>jasmine.json</code>.</p>
+</code></pre></div><p>Also, we have to change some configurations in <code>jasmine.json</code>.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json>  <span class=s2>&#34;spec_files&#34;</span><span class=err>:</span> <span class=p>[</span>
     <span class=s2>&#34;**/*[sS]pec.ts&#34;</span>
   <span class=p>]</span><span class=err>,</span>
@@ -238,7 +264,7 @@
   <span class=p>]</span><span class=err>,</span>
 </code></pre></div><p>Add this script in <code>package.json</code>.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=s2>&#34;test&#34;</span><span class=err>:</span> <span class=s2>&#34;ts-node .\\node_modules\\jasmine\\bin\\jasmine&#34;</span>
-</code></pre></div><p>And also this content at the beginning of the <code>tsconfig.json</code> file.</p>
+</code></pre></div><p>And for last, this ts-node related content at the beginning of the <code>tsconfig.json</code> file.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
   <span class=c1>// This is an alias to @tsconfig/node12: https://github.com/tsconfig/bases
 </span><span class=c1></span>  <span class=nt>&#34;extends&#34;</span><span class=p>:</span> <span class=s2>&#34;ts-node/node12/tsconfig.json&#34;</span><span class=p>,</span>
@@ -254,7 +280,7 @@
 </span><span class=c1></span>      <span class=c1>// different options with a single tsconfig.json.
 </span><span class=c1></span>    <span class=p>}</span>
   <span class=p>},</span>  
-</code></pre></div><p>With this very basic test case example, we can confirm that <code>jasmine</code> is working properly.</p>
+</code></pre></div><p>With this very basic test case example, we can confirm that <code>jasmine</code> is working right.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=c1>// spec\main.spec.ts
 </span><span class=c1></span><span class=kr>import</span> <span class=p>{</span> <span class=nx>User</span> <span class=p>}</span> <span class=kr>from</span> <span class=s2>&#34;../user&#34;</span><span class=p>;</span>
 <span class=kr>import</span> <span class=nx>foo</span> <span class=kr>from</span> <span class=s2>&#34;../foo&#34;</span><span class=p>;</span>
@@ -274,7 +300,7 @@
 </code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback>npm test
 </code></pre></div><p>If you want to use a more powerful assertion library, <a href=https://www.chaijs.com/>chai</a> is a good choice.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>npm</span> <span class=n>install</span> <span class=p>-</span><span class=n>-save-dev</span> <span class=n>chai</span> <span class=nv>@types</span><span class=p>/</span><span class=n>chai</span>
-</code></pre></div><p>And now, use the new library in our tests:</p>
+</code></pre></div><p>And with only a few bit changes, we will have improved our assertions.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-typescript data-lang=typescript><span class=kr>import</span> <span class=p>{</span> <span class=nx>User</span> <span class=p>}</span> <span class=kr>from</span> <span class=s2>&#34;../user&#34;</span><span class=p>;</span>
 <span class=kr>import</span> <span class=p>{</span> <span class=nx>expect</span> <span class=p>}</span> <span class=kr>from</span> <span class=s2>&#34;chai&#34;</span><span class=p>;</span>  <span class=c1>// import expect from chai
 </span><span class=c1></span><span class=kr>import</span> <span class=nx>foo</span> <span class=kr>from</span> <span class=s2>&#34;../foo&#34;</span><span class=p>;</span>
@@ -285,15 +311,15 @@
             <span class=nx>name</span><span class=o>:</span> <span class=s2>&#34;Sergio&#34;</span><span class=p>,</span>
             <span class=nx>age</span>: <span class=kt>45</span>
         <span class=p>};</span>
-        <span class=nx>expect</span><span class=p>(</span><span class=nx>user</span><span class=p>.</span><span class=nx>age</span><span class=p>).</span><span class=nx>to</span><span class=p>.</span><span class=nx>be</span><span class=p>.</span><span class=nx>eq</span><span class=p>(</span><span class=mi>45</span><span class=p>);</span>  <span class=c1>// use chai BDD asssertion style
+        <span class=nx>expect</span><span class=p>(</span><span class=nx>user</span><span class=p>.</span><span class=nx>age</span><span class=p>).</span><span class=nx>to</span><span class=p>.</span><span class=nx>be</span><span class=p>.</span><span class=nx>eq</span><span class=p>(</span><span class=mi>45</span><span class=p>);</span>  <span class=c1>// chai asssertion
 </span><span class=c1></span>    <span class=p>});</span>
     <span class=nx>it</span><span class=p>(</span><span class=s2>&#34;should execute foo&#34;</span><span class=p>,</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>       
-        <span class=nx>expect</span><span class=p>(</span><span class=nx>foo</span><span class=p>(</span><span class=s2>&#34;bar&#34;</span><span class=p>)).</span><span class=nx>to</span><span class=p>.</span><span class=nx>be</span><span class=p>.</span><span class=nx>eq</span><span class=p>(</span><span class=s2>&#34;bar&#34;</span><span class=p>);</span>  <span class=c1>// use chai BDD asssertion style
+        <span class=nx>expect</span><span class=p>(</span><span class=nx>foo</span><span class=p>(</span><span class=s2>&#34;bar&#34;</span><span class=p>)).</span><span class=nx>to</span><span class=p>.</span><span class=nx>be</span><span class=p>.</span><span class=nx>eq</span><span class=p>(</span><span class=s2>&#34;bar&#34;</span><span class=p>);</span>  <span class=c1>// chai asssertion
 </span><span class=c1></span>    <span class=p>});</span>
 <span class=p>});</span>
-</code></pre></div><p>Finally, we need code coverage to achieve our goal.</p>
+</code></pre></div><p>Finally, we need to set up code coverage to achieve our initial goal.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>npm</span> <span class=n>install</span> <span class=p>-</span><span class=n>-save-dev</span> <span class=n>nyc</span>
-</code></pre></div><p>By hand, you must create <code>.nycrc</code> file and include this content:</p>
+</code></pre></div><p>By hand, create <code>.nycrc</code> file and include this content:</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
     <span class=nt>&#34;exclude&#34;</span><span class=p>:</span> <span class=p>[</span>
         <span class=s2>&#34;spec/**/*.ts&#34;</span>
@@ -307,10 +333,10 @@
         <span class=s2>&#34;text-summary&#34;</span>
     <span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div><p>If you want to measure code coverage not only in files touched by tests, <a href=https://github.com/istanbuljs/nyc#common-configuration-options>add</a> <code>"all": true</code> to this file.</p>
+</code></pre></div><p>If you want to measure code coverage not only in files touched by tests, <a href=https://github.com/istanbuljs/nyc#common-configuration-options>you can do it adding</a> <code>"all": true</code> to this file.</p>
 <p>Anyway, add this script to <code>package.json</code> and run it with <code>npm run coverage</code>.</p>
 <div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=s2>&#34;coverage&#34;</span><span class=err>:</span> <span class=s2>&#34;nyc npm run test&#34;</span>
-</code></pre></div><p>At this moment, we have created a fully functional playground to execute TypeScript in an easy way, test with Jasmine, and get code coverage when we need it.</p>
+</code></pre></div><p>And this is all. We have created a fully functional playground to execute TypeScript in an easy way, test with Jasmine, and get code coverage with Istanbul.</p>
 <p>Bye!</p>
 <div class=blog-tags>
 <a href=https://panicoenlaxbox.com/tags/typescript/>typescript</a>&nbsp;
@@ -321,12 +347,12 @@
 <div class=share-box aria-hidden=true>
 <ul class=share>
 <li>
-<a href="//twitter.com/share?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2ftypescript-node-jasmine%2f&text=TypeScript%20playground&via=panicoenlaxbox" target=_blank title="Share on Twitter">
+<a href="//twitter.com/share?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2ftypescript-node-jasmine%2f&text=TypeScript%20and%20Jasmine%20playground&via=panicoenlaxbox" target=_blank title="Share on Twitter">
 <i class="fab fa-twitter"></i>
 </a>
 </li>
 <li>
-<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2ftypescript-node-jasmine%2f&title=TypeScript%20playground" target=_blank title="Share on LinkedIn">
+<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2ftypescript-node-jasmine%2f&title=TypeScript%20and%20Jasmine%20playground" target=_blank title="Share on LinkedIn">
 <i class="fab fa-linkedin"></i>
 </a>
 </li>
