@@ -3,14 +3,18 @@
 <meta charset=utf-8>
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>python - Programación desordenada</title>
+<title>.NET test project with a single command - Programación desordenada</title>
+<meta name=description content="Sometimes, I need to create quickly a new .NET test project because I&rsquo;m learning or practicing and I want, in a few seconds, a new and clean project to work with it.">
 <meta name=author content="Sergio León"><script type=application/ld+json>{"@context":"http://schema.org","@type":"WebSite","name":"Programación desordenada","url":"https:\/\/panicoenlaxbox.com"}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Organization","name":"","url":"https:\/\/panicoenlaxbox.com"}</script>
-<meta property="og:title" content="python">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https:\/\/panicoenlaxbox.com","name":"home"}},{"@type":"ListItem","position":3,"item":{"@id":"https:\/\/panicoenlaxbox.com\/post\/new-dotnet-test-project\/","name":". net test project with a single command"}}]}</script><script type=application/ld+json>{"@context":"http://schema.org","@type":"Article","author":{"name":"Sergio León"},"headline":".NET test project with a single command","description":"Sometimes, I need to create quickly a new .NET test project because I\u0026rsquo;m learning or practicing and I want, in a few seconds, a new and clean project to work with it.\n","inLanguage":"es","wordCount":374,"datePublished":"2022-02-14T19:25:36","dateModified":"2022-02-14T19:25:36","image":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","keywords":["csharp"],"mainEntityOfPage":"https:\/\/panicoenlaxbox.com\/post\/new-dotnet-test-project\/","publisher":{"@type":"Organization","name":"https:\/\/panicoenlaxbox.com","logo":{"@type":"ImageObject","url":"https:\/\/panicoenlaxbox.com\/img\/avatar-icon.png","height":60,"width":60}}}</script>
+<meta property="og:title" content=".NET test project with a single command">
+<meta property="og:description" content="Sometimes, I need to create quickly a new .NET test project because I&rsquo;m learning or practicing and I want, in a few seconds, a new and clean project to work with it.">
 <meta property="og:image" content="https://panicoenlaxbox.com/img/avatar-icon.png">
-<meta property="og:url" content="https://panicoenlaxbox.com/tags/python/">
+<meta property="og:url" content="https://panicoenlaxbox.com/post/new-dotnet-test-project/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Programación desordenada">
-<meta name=twitter:title content="python">
+<meta name=twitter:title content=".NET test project with a single command">
+<meta name=twitter:description content="Sometimes, I need to create quickly a new .NET test project because I&rsquo;m learning or practicing and I want, in a few seconds, a new and clean project to work with it.">
 <meta name=twitter:image content="https://panicoenlaxbox.com/img/avatar-icon.png">
 <meta name=twitter:card content="summary">
 <meta name=twitter:site content="@panicoenlaxbox">
@@ -101,9 +105,11 @@
 <div class=container>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=tags-heading>
-<h1>python</h1>
-<hr class=small>
+<div class=post-heading>
+<h1>.NET test project with a single command</h1>
+<span class=post-meta>
+<i class="fas fa-calendar"></i>&nbsp;Publicado el February 14, 2022
+</span>
 </div>
 </div>
 </div>
@@ -129,60 +135,102 @@
 <div class=container role=main>
 <div class=row>
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class=posts-list>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/duck-typing-python/>
-<h2 class=post-title>Duck typing en python</h2>
-</a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el December 12, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>El <a href=https://es.wikipedia.org/wiki/Duck_typing>Duck typing</a> es una forma de tipado estructural que permite definir interfaces de objetos, que no estando relacionados, se comportan de forma similar.</p>
-<a href=https://panicoenlaxbox.com/post/duck-typing-python/ class=post-read-more>[Leer más]</a>
-</div>
+<article role=main class=blog-post>
+<p>Sometimes, I need to create quickly a new .NET test project because I&rsquo;m learning or practicing and I want, in a few seconds, a new and clean project to work with it.</p>
+<p>It&rsquo;s true that you can use Visual Studio and with only a few clicks, achieve the same result. But, why not automatize these steps and gain some valuable seconds?</p>
+<blockquote>
+<p>It&rsquo;s obvious that the difference between the manual process and the automatized process it&rsquo;s not going to be a key advantage, but I have to be honest. I have created this snippet because I can. I wanted to do it because I had fun doing it :)</p>
+</blockquote>
+<p>The necessary steps to create the project are the following (assuming you want to create a <em>FizzBuzz</em> test project):</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>mkdir</span> <span class=n>FizzBuzz</span>
+<span class=nb>cd </span><span class=p>.\</span><span class=n>FizzBuzz</span><span class=p>\</span>
+<span class=nb>echo </span><span class=s2>&#34;# FizzBuzz&#34;</span> <span class=p>&gt;</span> <span class=n>README</span><span class=p>.</span><span class=nb>md
+</span><span class=nb></span><span class=n>dotnet</span> <span class=n>new</span> <span class=n>sln</span>
+<span class=n>mkdir</span> <span class=n>src</span>
+<span class=n>dotnet</span> <span class=n>new</span> <span class=n>classlib</span> <span class=n>-n</span> <span class=n>FizzBuzz</span> <span class=n>-o</span> <span class=p>.\</span><span class=n>src</span><span class=p>\</span>
+<span class=n>dotnet</span> <span class=n>sln</span> <span class=n>add</span> <span class=p>.\</span><span class=n>src</span><span class=p>\</span><span class=n>FizzBuzz</span><span class=p>.</span><span class=n>csproj</span>
+<span class=n>mkdir</span> <span class=n>tests</span>
+<span class=n>dotnet</span> <span class=n>new</span> <span class=n>xunit</span> <span class=n>-n</span> <span class=n>FizzBuzz</span><span class=p>.</span><span class=n>Tests</span> <span class=n>-o</span> <span class=p>.\</span><span class=n>tests</span><span class=p>\</span>
+<span class=n>dotnet</span> <span class=n>sln</span> <span class=n>add</span> <span class=p>.\</span><span class=n>tests</span><span class=p>\</span><span class=n>FizzBuzz</span><span class=p>.</span><span class=n>Tests</span><span class=p>.</span><span class=n>csproj</span>
+<span class=n>dotnet</span> <span class=n>add</span> <span class=p>.\</span><span class=n>tests</span><span class=p>\</span><span class=n>FizzBuzz</span><span class=p>.</span><span class=n>Tests</span><span class=p>.</span><span class=n>csproj</span> <span class=n>reference</span> <span class=p>.\</span><span class=n>src</span><span class=p>\</span><span class=n>FizzBuzz</span><span class=p>.</span><span class=n>csproj</span>
+<span class=n>dotnet</span> <span class=n>add</span> <span class=p>.\</span><span class=n>tests</span><span class=p>\</span><span class=n>FizzBuzz</span><span class=p>.</span><span class=n>Tests</span><span class=p>.</span><span class=n>csproj</span> <span class=n>package</span> <span class=n>FluentAssertions</span>
+<span class=n>dotnet</span> <span class=n>add</span> <span class=p>.\</span><span class=n>tests</span><span class=p>\</span><span class=n>FizzBuzz</span><span class=p>.</span><span class=n>Tests</span><span class=p>.</span><span class=n>csproj</span> <span class=n>package</span> <span class=n>NSubstitute</span>
+<span class=n>dotnet</span> <span class=n>add</span> <span class=p>.\</span><span class=n>tests</span><span class=p>\</span><span class=n>FizzBuzz</span><span class=p>.</span><span class=n>Tests</span><span class=p>.</span><span class=n>csproj</span> <span class=n>package</span> <span class=n>NSubstitute</span><span class=p>.</span><span class=n>Analyzers</span><span class=p>.</span><span class=n>CSharp</span>
+<span class=n>dotnet</span> <span class=n>new</span> <span class=nb>tool-manifest</span>
+<span class=n>dotnet</span> <span class=n>tool</span> <span class=n>install</span> <span class=nb>dotnet-reportgenerator</span><span class=n>-globaltool</span>
+<span class=n>dotnet</span> <span class=n>add</span> <span class=p>.\</span><span class=n>tests</span><span class=p>\</span><span class=n>FizzBuzz</span><span class=p>.</span><span class=n>Tests</span><span class=p>.</span><span class=n>csproj</span> <span class=n>package</span> <span class=n>coverlet</span><span class=p>.</span><span class=n>msbuild</span>
+</code></pre></div><p>With these two lines, you can generate a friendly coverage report in HTML.</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=n>dotnet</span> <span class=n>test</span> <span class=p>/</span><span class=n>p:CollectCoverage</span><span class=p>=</span><span class=n>true</span> <span class=p>/</span><span class=n>p:CoverletOutputFormat</span><span class=p>=</span><span class=n>cobertura</span>
+<span class=n>dotnet</span> <span class=n>reportgenerator</span> <span class=n>-reports</span><span class=err>:</span><span class=s2>&#34;tests\coverage.cobertura.xml&#34;</span> <span class=n>-targetdir</span><span class=err>:</span><span class=s2>&#34;tests\coveragereport&#34;</span> <span class=n>-reporttypes</span><span class=err>:</span><span class=n>Html</span>
+</code></pre></div><p>So far, we have a recipe, but with a little extra effort, we can have a truly single command to generate our test project. For this, you have to edit your profile file with <code>code $PROFILE</code> and paste this function into it:</p>
+<div class=highlight><pre tabindex=0 class=chroma><code class=language-powershell data-lang=powershell><span class=k>function</span> <span class=nb>New-TestProject</span> <span class=p>{</span>
+    <span class=k>param</span> <span class=p>(</span>
+        <span class=p>[</span><span class=k>Parameter</span><span class=p>(</span><span class=k>Mandatory</span><span class=p>=</span><span class=nv>$True</span><span class=p>)]</span>
+        <span class=no>[string]</span>
+        <span class=nv>$name</span>
+    <span class=p>)</span>
+
+    <span class=k>if</span> <span class=p>(</span><span class=nb>Test-Path</span> <span class=n>-Path</span> <span class=nv>$name</span><span class=p>)</span> <span class=p>{</span>
+        <span class=nb>Write-Error</span> <span class=s2>&#34;Project $name already exists&#34;</span>
+        <span class=k>return</span>
+    <span class=p>}</span>       
+     
+    <span class=n>mkdir</span> <span class=nv>$name</span>
+    <span class=nb>cd </span><span class=p>.\</span><span class=nv>$name</span><span class=p>\</span>
+    <span class=nb>echo </span><span class=s2>&#34;# $name&#34;</span> <span class=p>&gt;</span> <span class=n>README</span><span class=p>.</span><span class=nb>md
+</span><span class=nb></span>    <span class=n>dotnet</span> <span class=n>new</span> <span class=n>sln</span>
+    <span class=n>mkdir</span> <span class=n>src</span>
+    <span class=n>dotnet</span> <span class=n>new</span> <span class=n>classlib</span> <span class=n>-n</span> <span class=nv>$name</span> <span class=n>-o</span> <span class=p>.\</span><span class=n>src</span><span class=p>\</span>
+    <span class=n>dotnet</span> <span class=n>sln</span> <span class=n>add</span> <span class=s2>&#34;.\src\$name.csproj&#34;</span>
+    <span class=n>mkdir</span> <span class=n>tests</span>
+    <span class=n>dotnet</span> <span class=n>new</span> <span class=n>xunit</span> <span class=n>-n</span> <span class=s2>&#34;$name.Tests&#34;</span> <span class=n>-o</span> <span class=p>.\</span><span class=n>tests</span><span class=p>\</span>
+    <span class=n>dotnet</span> <span class=n>sln</span> <span class=n>add</span> <span class=s2>&#34;.\tests\$name.Tests.csproj&#34;</span>
+    <span class=n>dotnet</span> <span class=n>add</span> <span class=s2>&#34;.\tests\$name.Tests.csproj&#34;</span> <span class=n>reference</span> <span class=s2>&#34;.\src\$name.csproj&#34;</span>
+    <span class=n>dotnet</span> <span class=n>add</span> <span class=s2>&#34;.\tests\$name.Tests.csproj&#34;</span> <span class=n>package</span> <span class=n>FluentAssertions</span>
+    <span class=n>dotnet</span> <span class=n>add</span> <span class=s2>&#34;.\tests\$name.Tests.csproj&#34;</span> <span class=n>package</span> <span class=n>NSubstitute</span>
+    <span class=n>dotnet</span> <span class=n>add</span> <span class=s2>&#34;.\tests\$name.Tests.csproj&#34;</span> <span class=n>package</span> <span class=n>NSubstitute</span><span class=p>.</span><span class=n>Analyzers</span><span class=p>.</span><span class=n>CSharp</span>
+    <span class=n>dotnet</span> <span class=n>new</span> <span class=nb>tool-manifest</span>
+    <span class=n>dotnet</span> <span class=n>tool</span> <span class=n>install</span> <span class=nb>dotnet-reportgenerator</span><span class=n>-globaltool</span>
+    <span class=n>dotnet</span> <span class=n>add</span> <span class=s2>&#34;.\tests\$name.Tests.csproj&#34;</span> <span class=n>package</span> <span class=n>coverlet</span><span class=p>.</span><span class=n>msbuild</span>
+<span class=p>}</span>
+</code></pre></div><p>Now, to create a test project, a bare command like this <code>New-TestProject FizzBuzz</code> will do the magic. Fast and cheap!</p>
+<p>Bye!</p>
 <div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/python/>python</a>&nbsp;
+<a href=https://panicoenlaxbox.com/tags/csharp/>csharp</a>&nbsp;
 </div>
-</article>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/primeros-pasos-python/>
-<h2 class=post-title>Primeros pasos con Python</h2>
+<hr>
+<section id=social-share>
+<div class="list-inline footer-links">
+<div class=share-box aria-hidden=true>
+<ul class=share>
+<li>
+<a href="//twitter.com/share?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fnew-dotnet-test-project%2f&text=.NET%20test%20project%20with%20a%20single%20command&via=panicoenlaxbox" target=_blank title="Share on Twitter">
+<i class="fab fa-twitter"></i>
 </a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el November 2, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>Después de instalar Python ¿por dónde empiezo? ¿dónde instalo los paquetes? ¿uso <a href=https://pipenv-fork.readthedocs.io/en/latest/>pipenv</a> o <a href=https://python-poetry.org/>poetry</a>? ¿<a href=https://code.visualstudio.com/>VSCode</a> o <a href=https://www.jetbrains.com/es-es/pycharm/>PyCharm</a>?</p>
-<a href=https://panicoenlaxbox.com/post/primeros-pasos-python/ class=post-read-more>[Leer más]</a>
-</div>
-<div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/python/>python</a>&nbsp;
-</div>
-</article>
-<article class=post-preview>
-<a href=https://panicoenlaxbox.com/post/python-github-devops/>
-<h2 class=post-title>Crear un paquete Python y publicarlo en Azure DevOps con GitHub Actions</h2>
+</li>
+<li>
+<a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fpanicoenlaxbox.com%2fpost%2fnew-dotnet-test-project%2f&title=.NET%20test%20project%20with%20a%20single%20command" target=_blank title="Share on LinkedIn">
+<i class="fab fa-linkedin"></i>
 </a>
-<p class=post-meta>
-<span class=post-meta>
-<i class="fas fa-calendar"></i>&nbsp;Publicado el February 14, 2021
-</span>
-</p>
-<div class=post-entry>
-<p>En este post, me gustaría compartir una forma de crear un paquete de Python, publicarlo en un feed privado con una GitHub action y consumirlo en una aplicación cliente.</p>
-<a href=https://panicoenlaxbox.com/post/python-github-devops/ class=post-read-more>[Leer más]</a>
+</li>
+</ul>
 </div>
-<div class=blog-tags>
-<a href=https://panicoenlaxbox.com/tags/python/>python</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/github/>github</a>&nbsp;
-<a href=https://panicoenlaxbox.com/tags/azuredevops/>azuredevops</a>&nbsp;
 </div>
+</section>
+<h4 class=see-also>Ver también</h4>
+<ul>
+<li><a href=/post/nuget-package-azure-devops/>Crear un paquete Nuget y publicarlo en Azure DevOps</a></li>
+</ul>
 </article>
+<ul class="pager blog-pager">
+<li class=previous>
+<a href=https://panicoenlaxbox.com/post/typescript-node-jasmine/ data-toggle=tooltip data-placement=top title="TypeScript and Jasmine playground">&larr; Artículo anterior</a>
+</li>
+</ul>
+<div class=disqus-comments>
+<button id=show-comments class="btn btn-default" type=button>Mostrar <span class=disqus-comment-count data-disqus-url=https://panicoenlaxbox.com/post/new-dotnet-test-project>comentarios</span></button>
+<div id=disqus_thread></div>
+<script type=text/javascript>var disqus_config=function(){this.page.url='https://panicoenlaxbox.com/post/new-dotnet-test-project'}</script>
 </div>
 </div>
 </div>
@@ -225,7 +273,7 @@
 </a>
 </li>
 <li>
-<a href=/tags/python/index.xml title=RSS>
+<a href title=RSS>
 <span class="fa-stack fa-lg">
 <i class="fas fa-circle fa-stack-2x"></i>
 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
