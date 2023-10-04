@@ -23,7 +23,7 @@
 </span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nv>$env:PIPENV_ACTIVE</span> <span class=o>-eq</span> <span class=mf>1</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>        <span class=nv>$prompt</span> <span class=p>=</span> <span class=s2>&#34;(&#34;</span> <span class=p>+</span> <span class=p>((</span><span class=nv>$env:VIRTUAL_ENV</span> <span class=n>-split</span> <span class=s2>&#34;\\&#34;</span><span class=p>)[</span><span class=mf>-1</span><span class=p>]</span> <span class=n>-split</span> <span class=s2>&#34;-&#34;</span><span class=p>)[</span><span class=mf>0</span><span class=p>]</span> <span class=p>+</span> <span class=s2>&#34;) &#34;</span>
 </span></span><span class=line><span class=cl>    <span class=p>}</span>      
-</span></span><span class=line><span class=cl>    <span class=nv>$prompt</span> <span class=p>+=</span> <span class=nv>$pwd</span><span class=p>.</span><span class=py>Path</span>
+</span></span><span class=line><span class=cl>    <span class=nv>$prompt</span> <span class=p>+=</span> <span class=nv>$pwd</span><span class=p>.</span><span class=py>Path</span><span class=p>.</span><span class=py>Trim</span><span class=p>()</span>
 </span></span><span class=line><span class=cl>    <span class=nb>Write-Host</span> <span class=nv>$prompt</span> <span class=n>-NoNewline</span>
 </span></span><span class=line><span class=cl>    <span class=s2>&#34;&gt; &#34;</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
