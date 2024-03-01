@@ -17,7 +17,7 @@
 </span></span><span class=line><span class=cl><span class=n>poetry</span> <span class=n>new</span> <span class=p>-</span><span class=n>-name</span> <span class=nv>$app</span> <span class=p>-</span><span class=n>-src</span> <span class=nv>$directory</span>
 </span></span><span class=line><span class=cl><span class=nb>cd </span><span class=nv>$directory</span>
 </span></span><span class=line><span class=cl><span class=n>poetry</span> <span class=n>add</span> <span class=n>-G</span> <span class=n>dev</span> <span class=n>isort</span> <span class=n>black</span> <span class=n>flake8</span> <span class=nb>flake8-pyproject</span> <span class=n>pytest</span> <span class=n>assertpy</span> <span class=nb>pytest-asyncio</span> <span class=nb>pytest-cov</span> <span class=n>mypy</span> <span class=nb>pre-commit</span>
-</span></span><span class=line><span class=cl><span class=nb>echo </span><span class=s2>&#34;[tool.black]`
+</span></span><span class=line><span class=cl><span class=nb>echo </span><span class=s2>&#34;[tool.black]
 </span></span></span><span class=line><span class=cl><span class=s2>line-length = 120
 </span></span></span><span class=line><span class=cl><span class=s2>target-version = [&#34;&#34;py311&#34;&#34;]
 </span></span></span><span class=line><span class=cl><span class=s2>
@@ -54,7 +54,7 @@
 </span></span></span><span class=line><span class=cl><span class=s2>[tool.coverage.report]
 </span></span></span><span class=line><span class=cl><span class=s2>exclude_lines = [&#34;&#34;pass&#34;&#34;]&#34;</span> <span class=p>&gt;&gt;</span> <span class=n>pyproject</span><span class=p>.</span><span class=py>toml</span>
 </span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=nb>echo </span><span class=s2>&#34;fail_fast: true`
+</span></span><span class=line><span class=cl><span class=nb>echo </span><span class=s2>&#34;fail_fast: true
 </span></span></span><span class=line><span class=cl><span class=s2>repos:
 </span></span></span><span class=line><span class=cl><span class=s2>-   repo: https://github.com/python-poetry/poetry
 </span></span></span><span class=line><span class=cl><span class=s2>    rev: 1.2.2
