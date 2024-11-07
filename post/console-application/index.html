@@ -24,7 +24,7 @@
 </span></span><span class=line><span class=cl>    <span class=p>.</span><span class=n>AddTransient</span><span class=p>&lt;</span><span class=n>IConfiguration</span><span class=p>&gt;(</span><span class=n>_</span> <span class=p>=&gt;</span> <span class=n>configuration</span><span class=p>)</span>
 </span></span><span class=line><span class=cl>    <span class=p>.</span><span class=n>AddLogging</span><span class=p>(</span><span class=n>configure</span> <span class=p>=&gt;</span> <span class=n>configure</span>
 </span></span><span class=line><span class=cl>        <span class=p>.</span><span class=n>AddConfiguration</span><span class=p>(</span><span class=n>configuration</span><span class=p>.</span><span class=n>GetSection</span><span class=p>(</span><span class=s>&#34;Logging&#34;</span><span class=p>))</span>
-</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=n>AddConsole</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=n>AddConsole</span><span class=p>());</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=k>using</span> <span class=nn>var</span> <span class=n>scope</span> <span class=p>=</span> <span class=n>services</span><span class=p>.</span><span class=n>BuildServiceProvider</span><span class=p>().</span><span class=n>CreateScope</span><span class=p>();</span>
 </span></span><span class=line><span class=cl>
